@@ -1,0 +1,104 @@
+
+
+  
+
+ 
+  <mdb-card class="mt-3 z-depth-1 signup ml-2">
+  
+    <div class="pt-0 d-flex justify-content-around row">
+      <div class="col-sm-4">
+        <img src="../../assets/logo.png" style="width: 490px; max-height:400px" />
+      </div>
+  <div class="col-sm-7 scrollbar">
+    <form #signupForm=ngForm [formGroup]="form" (ngSubmit)="onSubmit()">
+      
+       
+        
+        <div class="form-row">
+          <div class="col">
+            
+            <div class="md-form">
+              <input type="text" id="nom"   class="form-control" mdbInput mdbValidate  formControlName="nom" >
+              <label for="nom">Nom </label>   
+              
+              <mdb-error *ngIf="nom.invalid && (nom.dirty || nom.touched)">Le nom est obligatoire</mdb-error>
+              <mdb-success *ngIf="nom.valid && (nom.dirty || nom.touched)"></mdb-success>
+            </div>
+          </div>
+          <div class="col">
+           
+            <div class="md-form">
+              <input type="text" id="prenom" class="form-control" mdbInput  mdbValidate formControlName="prenom">
+              <label for="prenom">Prénom</label>
+              <mdb-error *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)">Le prenom est obligatoire</mdb-error>
+              <mdb-success *ngIf="prenom.valid && (prenom.dirty || prenom.touched)"></mdb-success>
+            </div>
+          </div>
+        </div>
+        
+        
+        <div class="form-row"> 
+            <div class="col">
+              
+              <div class="md-form">
+                <input type="text" id="email" required class="form-control" mdbInput  mdbValidate formControlName="email">
+                <label for="email">Email</label>
+                <mdb-error *ngIf="email.invalid && (numtel.dirty || email.touched)">Le téléphone doit être composé de 8 chiffres</mdb-error>
+                <mdb-success *ngIf="email.valid && (numtel.dirty || email.touched)"></mdb-success>
+              </div>
+            </div>
+          </div>
+        
+          
+         <div class="form-row"> 
+            <div class="col">
+              
+              <div class="md-form">
+                <input type="text" id="numtel" required class="form-control" mdbInput  mdbValidate formControlName="numtel">
+                <label for="numtel">Téléphone</label>
+                <mdb-error *ngIf="numtel.invalid && (numtel.dirty || numtel.touched)">Le téléphone doit être composé de 8 chiffres</mdb-error>
+                <mdb-success *ngIf="numtel.valid && (numtel.dirty || numtel.touched)"></mdb-success>
+              </div>
+            </div>
+          </div>
+        
+          <div class="form-row">
+            <div class="col">
+              
+              <div class="md-form">
+                <input type="password"  id="password" class="form-control" mdbInput   mdbValidate required  formControlName="password" autocomplete="new-password">
+                <label for="password">Mot de passe</label>
+                <mdb-error *ngIf="password.invalid && (password.dirty || password.touched)">Le mot de passe doit être composé de 8 à 20 caractères </mdb-error>
+                <mdb-success *ngIf="password.valid && (password.dirty || password.touched)"></mdb-success>
+              </div>  
+            </div>
+            <div class="col">
+             
+              <div class="md-form">
+                <input type="password" required id="confirmpass" class="form-control" mdbInput mdbValidate formControlName="password_confirmation" autocomplete="new-password">
+                <label for="confirmpass">Confirmer mot de passe</label>
+                <mdb-error *ngIf="password_confirmation.invalid && (password_confirmation.dirty || password_confirmation.touched)">Le mot de passe doit être composé de 8 à 20 caractères </mdb-error>
+                <mdb-success *ngIf="password_confirmation.valid && (password_confirmation.dirty || password_confirmation.touched)"></mdb-success>
+              </div>
+            </div>
+          </div>
+     
+
+         
+      <div class="d-flex justify-content-end">
+        <button   class="btn-outline-grey  text-bold px-3 py-2 mr-3"    type="submit" (click)="Effacer()">Effacer tout</button> 
+        <button   class="btn-outline-red  text-bold px-3 py-2 "  [disabled]="!signupForm.valid"  type="submit">Envoyer</button>
+      </div>
+         
+    
+      
+    </form>
+  </div>
+  
+    
+</div>
+</mdb-card>
+
+
+    
+  
