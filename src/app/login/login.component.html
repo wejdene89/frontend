@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-center  all">
+<div class="d-flex justify-content-center c1  all">
   
     <div class="my-5 z-depth-4 login ">
       <div class="view headercard">
@@ -12,7 +12,7 @@
            <form #loginForm=ngForm [formGroup]='form' (ngSubmit)="onSubmit()">
   
             <div class="alert alert-danger" style =" font-family: Arial, Helvetica, sans-serif;" [hidden]="!error">
-                  {{error}}
+                  {{message}}
             </div>
   
             <div class="md-form mb-5 " >

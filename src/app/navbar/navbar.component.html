@@ -199,7 +199,7 @@
   
       <ul class=" navbar-nav ml-auto mt-1">
        
-        <div *ngIf="loggedIn then thenBlock else elseBlock  " >   </div>
+        <div *ngIf="!loggedIn then thenBlock else elseBlock  " >   </div>
         <ng-template #thenBlock > 
        
             <ul class="navbar-nav ml-auto mt-1">
@@ -224,7 +224,7 @@
                 <a dropdownToggle  type="button" class="nav-link dropdown-toggle waves-light c8" mdbWavesEffect>
         <i class="fas fa-lg fa-user-check  c6" ></i></a>
                 <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary mt-4" role="menu">
-                  <a class="dropdown-item waves-light c2"> <mdb-icon fas icon="sign-out-alt" class="mr-1 c7"></mdb-icon>Sign out</a>
+                  <a class="dropdown-item waves-light c2" (click)="logout($event)"> <mdb-icon fas icon="sign-out-alt" class="mr-1 c7"></mdb-icon>Sign out</a>
                 </div>
               </li>
         

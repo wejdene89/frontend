@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   error =null;
   user : any;
   data:any;
+  message:any;
 
   constructor(private router:Router ,private  Services: ServiceService, private  Token: TokenService , 
    private Auth:AuthService, public fb: FormBuilder )
@@ -40,14 +41,21 @@ onSubmit()
 handleError(error)
 {
      this.error = error.error.error; 
+     this.message="verifier votre  données"
 }
    
 handleResponse(data)
 {   
      this.Token.handle(data.access_token);
      this.Auth.changedAuthStatus(true);
-    console.log(data);
-    
+    if(data.role=="admin")
+    {
+      this.router.navigate(['/admin']);
+    }
+   else
+    {
+      this.router.navigate(['/profile']);
+    }  
    
 }
 ngOnInit()

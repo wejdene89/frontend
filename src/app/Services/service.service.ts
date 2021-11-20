@@ -38,11 +38,11 @@ private baseUrl ='http://localhost:8000/api';
    {
     return this.http.post(`${this.baseUrl}/responsepasswordreset`,data)  ;
    }
-
+*/
    getAuthUser(header) 
    {
     return this.http.get(`${this.baseUrl}/user`,header)  ;
    }
   
-*/
+
 }

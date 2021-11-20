@@ -68,8 +68,15 @@ handleResponse(data)
 { //var datauser :any;
   this.Auth.changedAuthStatus(true);
   this.Token.handle(data.access_token);
-  this.router.navigate(['/profile']);
  // this.Auth.changedUser(datauser);
+   if(data.role=="admin")
+    {
+      this.router.navigate(['/admin']);
+    }
+    if(data.role==null)
+    {
+      this.router.navigate(['/profile']);
+    }
 }
 
 handleError(error)
