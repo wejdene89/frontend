@@ -65,9 +65,9 @@ export class TokenService {
  {
    return this.isValide();
  }
- getUser()
- {
-  return  JSON.parse(localStorage.getItem('user'));
- }
+getUser(data)
+{
+ return  data;
+}
 
 }

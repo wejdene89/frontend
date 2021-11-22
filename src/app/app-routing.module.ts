@@ -7,6 +7,8 @@ import { ProfileComponent }  from './profile/profile.component';
 import { AdminComponent }  from './admin/admin.component';
 import { BeforeLoginService } from './Services/before-login.service';
 import { AfterLoginService } from './Services/after-login.service';
+import {ResponseResetComponent} from './password/response-reset/response-reset.component';
+import {RequestResetComponent} from './password/request-reset/request-reset.component';
 const appRoutes: Routes = [
   { 
    path:'home',
@@ -24,10 +26,17 @@ const appRoutes: Routes = [
     canActivate: [BeforeLoginService],
 
   },
+
   {
     path:'profile',
     component: ProfileComponent,
-    canActivate: [AfterLoginService],
+   // canActivate: [AfterLoginService],
+
+  },
+  {
+    path:'p',
+    component: ProfileComponent,
+   // canActivate: [AfterLoginService],
 
   },
   {
@@ -36,7 +45,16 @@ const appRoutes: Routes = [
     canActivate: [AfterLoginService],
 
   },
-
+  {
+    path:'response-reset',
+    component: ResponseResetComponent,
+    canActivate: [BeforeLoginService]
+ },
+ {
+  path:'requestreset',
+  component: RequestResetComponent,
+  canActivate: [BeforeLoginService]
+},
 
 ];
 

@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit {
   loggedIn:boolean;
   token1:any;
   data:any
+  user:any;
   constructor(private auth:AuthService,private router:Router,private token:TokenService , private Services:ServiceService,private Auth:AuthService)
      {
       
@@ -22,6 +23,8 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     
     this.auth.authStatus.subscribe(value => this.loggedIn = value) ;
+    this.auth.authUser.subscribe(value => this.user = value) ;
+    console.log(this.user);
 
   }
   logout(event:MouseEvent)
@@ -30,9 +33,10 @@ export class NavbarComponent implements OnInit {
     this.token1 = this.token.remove();
     this.router.navigateByUrl('/login');
     this.auth.changedAuthStatus(false);
-
-  }
  
+   
+  }
+  
   
 
 }

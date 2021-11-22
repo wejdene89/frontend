@@ -14,7 +14,7 @@
      
         <!-- Dropdown -->
         <li class="nav-link1 nav-item" style="--i: .85s">
-            <a href="#"class="nav-link waves-light c1" mdbWavesEffect>Home<i class="fas fa-caret-down"></i></a>
+            <a class="nav-link waves-light c1" routerLink="/home" mdbWavesEffect>Home<i class="fas fa-caret-down"></i></a>
             <div class="dropdown1 c21 ">
                 <ul>
                    
@@ -222,7 +222,7 @@
               <!-- dropdown1 -->
               <li class="nav-item dropdown mt-auto " dropdown>
                 <a dropdownToggle  type="button" class="nav-link dropdown-toggle waves-light c8" mdbWavesEffect>
-        <i class="fas fa-lg fa-user-check  c6" ></i></a>
+        <i class="fas fa-lg fa-user-check  c6" ></i> {{user.nom}}  {{user.prenom}}</a>
                 <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary mt-4" role="menu">
                   <a class="dropdown-item waves-light c2" (click)="logout($event)"> <mdb-icon fas icon="sign-out-alt" class="mr-1 c7"></mdb-icon>Sign out</a>
                 </div>

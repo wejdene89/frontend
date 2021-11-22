@@ -1,104 +1,120 @@
+<section class="vh-200 c1" style="background-color: #eee; width: 100%;">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100 ">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black " style="border-radius: 25px;">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-centers">
+              <div class="col-md-10 col-lg-6 col-xl-7 order-2 order-lg-1">
 
-
-  
-
- 
-  <mdb-card class="mt-3 z-depth-1 signup ml-2 c1">
-  
-    <div class="pt-0 d-flex justify-content-around row">
-      <div class="col-sm-4">
-        <img src="../../assets/logo.png" style="width: 490px; max-height:400px" />
-      </div>
-  <div class="col-sm-7 scrollbar">
-    <form #signupForm=ngForm [formGroup]="form" (ngSubmit)="onSubmit()">
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+                    <form #signupForm=ngForm [formGroup]="form" (ngSubmit)="onSubmit()">
       
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                        <div class="form-outline flex-fill mb-0">
+                          <div class="md-form">
+                           <input type="text" id="nom"   class="form-control" mdbInput mdbValidate  formControlName="nom" >
+                           <label class="form-label" for="form3Example1c">First Name </label> 
+                                <mdb-error *ngIf="nom.invalid && (nom.dirty || nom.touched)">Required</mdb-error>
+                                <mdb-success *ngIf="nom.valid && (nom.dirty || nom.touched)"></mdb-success>
+                                
+                           </div>
+                        </div>
+                        <i class="far fa-user fa-lg me-3 fa-fw"></i>
+                        <div class="form-outline flex-fill mb-0">
+                          <div class="md-form">
+                            <input type="text" id="prenom" class="form-control" mdbInput  mdbValidate formControlName="prenom">
+                            <label class="form-label" for="form3Example1c">Last Name</label>
+                            <mdb-error *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)">Required</mdb-error>
+                            <mdb-success *ngIf="prenom.valid && (prenom.dirty || prenom.touched)"></mdb-success>
+                          </div>
+                        </div>
+                        </div>
        
+                        <div class="d-flex flex-row align-items-center mb-4">
+                        
+                          </div>
         
-        <div class="form-row">
-          <div class="col">
-            
-            <div class="md-form">
-              <input type="text" id="nom"   class="form-control" mdbInput mdbValidate  formControlName="nom" >
-              <label for="nom">Nom </label>   
+        
+                          <div class="d-flex flex-row align-items-center mb-4">
+                            <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                            <div class="form-outline flex-fill mb-0">
               
-              <mdb-error *ngIf="nom.invalid && (nom.dirty || nom.touched)">Le nom est obligatoire</mdb-error>
-              <mdb-success *ngIf="nom.valid && (nom.dirty || nom.touched)"></mdb-success>
-            </div>
-          </div>
-          <div class="col">
-           
-            <div class="md-form">
-              <input type="text" id="prenom" class="form-control" mdbInput  mdbValidate formControlName="prenom">
-              <label for="prenom">Prénom</label>
-              <mdb-error *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)">Le prenom est obligatoire</mdb-error>
-              <mdb-success *ngIf="prenom.valid && (prenom.dirty || prenom.touched)"></mdb-success>
-            </div>
-          </div>
-        </div>
-        
-        
-        <div class="form-row"> 
-            <div class="col">
-              
-              <div class="md-form">
-                <input type="text" id="email" required class="form-control" mdbInput  mdbValidate formControlName="email">
-                <label for="email">Email</label>
-                <mdb-error *ngIf="email.invalid && (numtel.dirty || email.touched)">Le téléphone doit être composé de 8 chiffres</mdb-error>
-                <mdb-success *ngIf="email.valid && (numtel.dirty || email.touched)"></mdb-success>
-              </div>
-            </div>
-          </div>
-        
-          
-         <div class="form-row"> 
-            <div class="col">
-              
-              <div class="md-form">
-                <input type="text" id="numtel" required class="form-control" mdbInput  mdbValidate formControlName="numtel">
-                <label for="numtel">Téléphone</label>
-                <mdb-error *ngIf="numtel.invalid && (numtel.dirty || numtel.touched)">Le téléphone doit être composé de 8 chiffres</mdb-error>
-                <mdb-success *ngIf="numtel.valid && (numtel.dirty || numtel.touched)"></mdb-success>
-              </div>
-            </div>
-          </div>
-        
-          <div class="form-row">
-            <div class="col">
-              
-              <div class="md-form">
-                <input type="password"  id="password" class="form-control" mdbInput   mdbValidate required  formControlName="password" autocomplete="new-password">
-                <label for="password">Mot de passe</label>
-                <mdb-error *ngIf="password.invalid && (password.dirty || password.touched)">Le mot de passe doit être composé de 8 à 20 caractères </mdb-error>
-                <mdb-success *ngIf="password.valid && (password.dirty || password.touched)"></mdb-success>
-              </div>  
-            </div>
-            <div class="col">
-             
-              <div class="md-form">
-                <input type="password" required id="confirmpass" class="form-control" mdbInput mdbValidate formControlName="password_confirmation" autocomplete="new-password">
-                <label for="confirmpass">Confirmer mot de passe</label>
-                <mdb-error *ngIf="password_confirmation.invalid && (password_confirmation.dirty || password_confirmation.touched)">Le mot de passe doit être composé de 8 à 20 caractères </mdb-error>
-                <mdb-success *ngIf="password_confirmation.valid && (password_confirmation.dirty || password_confirmation.touched)"></mdb-success>
-              </div>
-            </div>
-          </div>
-     
+                              <div class="md-form">
+                                <input type="text" id="email" required class="form-control" mdbInput  mdbValidate formControlName="email">
+                                <label class="form-label" for="form3Example3c">Your Email</label>
+                                <mdb-error *ngIf="email.invalid && (numtel.dirty || email.touched)">Required</mdb-error>
+                                <mdb-success *ngIf="email.valid && (numtel.dirty || email.touched)"></mdb-success>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="d-flex flex-row align-items-center mb-4">
+                            <i class="fas fa-phone fa-lg"></i>
+                              <div class="form-outline flex-fill mb-0">
+                                <div class="md-form">
+                                  <input type="text" id="numtel" required class="form-control" mdbInput  mdbValidate formControlName="numtel">
+                                  <label class="form-label" for="form3Example3c">Phone Number</label>
+                                  <mdb-error *ngIf="numtel.invalid && (numtel.dirty || numtel.touched)">Make sure it's at least 8 characters</mdb-error>
+                                  <mdb-success *ngIf="numtel.valid && (numtel.dirty || numtel.touched)"></mdb-success>
+                                </div>
+                              </div>
+                            </div>
+                          
+                            <div class="d-flex flex-row align-items-center mb-4">
+                              <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                              <div class="form-outline flex-fill mb-0">
+                                
+                                <div class="md-form">
+                                  <input type="password"  id="password" class="form-control" mdbInput   mdbValidate required  formControlName="password" autocomplete="new-password">
+                                  <label class="form-label" for="form3Example4c">Password</label>
+                                  <mdb-error *ngIf="password.invalid && (password.dirty || password.touched)">Make sure it's at least 8 characters </mdb-error>
+                                  <mdb-success *ngIf="password.valid && (password.dirty || password.touched)"></mdb-success>
+                                </div>  
+                              </div>
+                              <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                              <div class="form-outline flex-fill mb-0">
+                              <div class="md-form">
+                                <input type="password" required id="confirmpass" class="form-control" mdbInput mdbValidate formControlName="password_confirmation" autocomplete="new-password">
+                                <label class="form-label" for="form3Example4c">Password Confirmation</label>
+                                <mdb-error *ngIf="password_confirmation.invalid && (password_confirmation.dirty || password_confirmation.touched)">Make sure it's at least 8 characters </mdb-error>
+                                <mdb-success *ngIf="password_confirmation.valid && (password_confirmation.dirty || password_confirmation.touched)"></mdb-success>
+                              </div>
+                            </div>
+                            </div>
 
-         
-      <div class="d-flex justify-content-end">
-        <button   class="btn-outline-grey  text-bold px-3 py-2 mr-3"    type="submit" (click)="Effacer()">Effacer tout</button> 
-        <button   class="btn-outline-red  text-bold px-3 py-2 "  [disabled]="!signupForm.valid"  type="submit">Envoyer</button>
-      </div>
-         
-    
+                          
+                            <form  #checkForm=ngForm [formGroup]="formCheck">
+
+                              <div class="form-check d-flex justify-content-center mb-5">
+                       <input type="checkbox" id="form2Example3c" class="form-control" mdbInput  formControlName="check"/>
+                       <label class="form-check-label" for="form2Example3">
+                         I agree all statements in <a href="#!">Terms of service{{checked}}</a>
+                       </label>
+                     </div>
+                   </form>
+                      
+
+                          
+                          <div class="form-check d-flex justify-content-center mb-5">
+                          <button type="button" class="btn btn-warning btn-rounded " type="submit" (click)="Effacer()">Reset</button>
+                          <button  type="button"  class="btn btn-warning btn-rounded"   [disabled]="!signupForm.valid"  type="submit">Submit</button>
+                        </div>
+                      </form>
+                        <div class="d-flex justify-content-end ">
+                          Already have an account?  <a routerLink="/signup" >Sign In</a>
+                        </div>
+                        
+                  
+                    </div>
+                    <div class="col-md-10 col-lg-6 col-xl-5 d-flex align-items-center order-1 order-lg-2 ">
       
-    </form>
-  </div>
-  
-    
-</div>
-</mdb-card>
-
-
-    
-  
+                      <img src="../../assets/signup.png" class="img-fluid" alt="Sample image">
+                    </div> 
+                    </div>             
+                  </div>
+                </div>
+               </div>
+             </div>
+          </div>
+    </section>

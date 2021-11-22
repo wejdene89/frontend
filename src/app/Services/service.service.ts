@@ -13,11 +13,7 @@ private baseUrl ='http://localhost:8000/api';
 
    //user
    
-   /*VerifierMotDePasse(data)
-   {
-    return  this.http.post(`${this.baseUrl}/decrypt`,data);
-   }
-*/
+ 
    signup(data)
    {
      return  this.http.post(`${this.baseUrl}/create`,data);
@@ -28,7 +24,7 @@ private baseUrl ='http://localhost:8000/api';
    {
     return  this.http.post(`${this.baseUrl}/login`,data) ; 
    }
-  /*
+  
    sendPasswordResetLink(data)
    {
     return this.http.post(`${this.baseUrl}/sendPasswordReset`,data)  ;
@@ -38,7 +34,7 @@ private baseUrl ='http://localhost:8000/api';
    {
     return this.http.post(`${this.baseUrl}/responsepasswordreset`,data)  ;
    }
-*/
+
    getAuthUser(header) 
    {
     return this.http.get(`${this.baseUrl}/user`,header)  ;

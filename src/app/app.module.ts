@@ -19,6 +19,8 @@ import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
 import { ServiceService } from './Services/service.service';
 import { ProfileComponent } from './profile/profile.component';
 import { AdminComponent } from './admin/admin.component';
+import { RequestResetComponent } from './password/request-reset/request-reset.component';
+import { ResponseResetComponent } from './password/response-reset/response-reset.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { AdminComponent } from './admin/admin.component';
     LoginComponent,
     SignupComponent,
     ProfileComponent,
-    AdminComponent
+    AdminComponent,
+    RequestResetComponent,
+    ResponseResetComponent
   ],
   imports: [
     BrowserModule,

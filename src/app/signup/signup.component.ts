@@ -7,6 +7,7 @@ import { AuthService } from '../Services/auth.service';
 import {Router} from '@angular/router';
 
 import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
+import { ElementSchemaRegistry } from '@angular/compiler';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -17,7 +18,8 @@ export class SignupComponent implements OnInit {
   form: FormGroup;
   error =null;
   data:any;
- 
+  formCheck: FormGroup;
+  checked: boolean;
 constructor(private router:Router ,private  Services:  ServiceService,private Token:TokenService,public notif: SnotifyService,private Auth:AuthService,public fb: FormBuilder) 
 { 
         this.form = this.fb.group({
@@ -28,6 +30,9 @@ constructor(private router:Router ,private  Services:  ServiceService,private To
           password: new FormControl(null, [Validators.minLength(8),Validators.maxLength(20),Validators.required]),
           password_confirmation: new FormControl(null, [Validators.minLength(8),Validators.maxLength(20),Validators.required]),
        }); 
+       this.formCheck =  this.fb.group({
+        check: new FormControl(),
+       });
           
 }
 
@@ -56,27 +61,30 @@ onSubmit()
    formData.append("password", this.form.get('password').value);
    formData.append("password_confirmation", this.form.get('password_confirmation').value);
    formData.append("role", null);
-     console.log(formData);
-  
-          this.Services.signup(formData).subscribe(
+
+          if(this.formCheck.get('check').value == true)
+         { this.Services.signup(formData).subscribe(
             data=>this.handleResponse(data),
             error=>this.handleError(error));
+         }
+         else {
+          this.notif.error("Accept the terms of our service",{timeout:5000});
+
+         }
+         
 }
     
 handleResponse(data)
-
-{ //var datauser :any;
-  this.Auth.changedAuthStatus(true);
-  this.Token.handle(data.access_token);
- // this.Auth.changedUser(datauser);
-   if(data.role=="admin")
-    {
-      this.router.navigate(['/admin']);
+{   
+     this.Token.handle(data.access_token);
+     var userauth = {
+     nom :  data.nom,
+     prenom: data.prenom
     }
-    if(data.role==null)
-    {
-      this.router.navigate(['/profile']);
-    }
+     this.Token.getUser(data.role);
+     this.Auth.changedAuthStatus(true);
+     this.Auth.changedUser(this.Token.getUser(userauth));
+     this.router.navigate(['/profile']);
 }
 
 handleError(error)
@@ -100,6 +108,8 @@ handleError(error)
 ngOnInit()
 {
   this.notif.info('Tous les champs sont obligatoires ',{timeout:5000});
+
+
 }
 
 
@@ -109,5 +119,5 @@ get email() {return this.form.get('email');}
 get numtel() {return this.form.get('numtel');}
 get password() {return this.form.get('password');}
 get password_confirmation() { return this.form.get('password_confirmation');}
-  
+get  check() {return this.formCheck.get('check');}
 }
