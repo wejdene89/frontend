@@ -5,9 +5,10 @@ import { ServiceService} from '../Services/service.service';
 import { TokenService } from '../Services/token.service';
 import { AuthService } from '../Services/auth.service';
 import {Router} from '@angular/router';
-
 import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
 import { ElementSchemaRegistry } from '@angular/compiler';
+import * as $ from 'jquery';
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -20,7 +21,8 @@ export class SignupComponent implements OnInit {
   data:any;
   formCheck: FormGroup;
   checked: boolean;
-constructor(private router:Router ,private  Services:  ServiceService,private Token:TokenService,public notif: SnotifyService,private Auth:AuthService,public fb: FormBuilder) 
+  myData: any;
+constructor( private http: HttpClient,private router:Router ,private  Services:  ServiceService,private Token:TokenService,public notif: SnotifyService,private Auth:AuthService,public fb: FormBuilder) 
 { 
         this.form = this.fb.group({
           nom: new FormControl(null, [ Validators.required]),
@@ -57,7 +59,7 @@ onSubmit()
    formData.append("nom", this.form.get('nom').value);
    formData.append("prenom", this.form.get('prenom').value);
    formData.append("email", this.form.get('email').value);
-   formData.append("numtel", this.form.get('numtel').value);
+   formData.append("numtel", this.form.get('numtel').value.internationalNumber);
    formData.append("password", this.form.get('password').value);
    formData.append("password_confirmation", this.form.get('password_confirmation').value);
    formData.append("role", null);
@@ -100,6 +102,7 @@ handleError(error)
         this.error = 'Mot de passe n\'est pas conforme';
         this.notif.error(this.error,{timeout:4000});
       }
+      console.log(this.form.get('numtel').value.internationalNumber);
 
 }
 
@@ -108,6 +111,16 @@ handleError(error)
 ngOnInit()
 {
   this.notif.info('Tous les champs sont obligatoires ',{timeout:5000});
+  this.http.get('https://trial.mobiscroll.com/content/countries.json').subscribe((resp: any) => {
+    const countries = [];
+    for (let i = 0; i < resp.length; ++i) {
+        const country = resp[i];
+     
+        countries.push({ text: country.text, value: country.value });
+    }
+    this.myData = countries;
+ 
+});
 
 
 }

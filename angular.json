@@ -24,7 +24,12 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/svg-country-flags/svg",
+                "output": "src/assets/svg-country-flags/svg"
+              }
             ],
             "styles": [
               "node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss",
@@ -33,7 +38,9 @@
               "node_modules/@fortawesome/fontawesome-free/scss/brands.scss",
               "node_modules/angular-bootstrap-md/assets/scss/bootstrap/bootstrap.scss",
               "node_modules/angular-bootstrap-md/assets/scss/mdb.scss",
-              "src/styles.scss"
+              "node_modules/intl-tel-input/build/css/intlTelInput.css",
+              "src/styles.scss",
+              "./node_modules/@mobiscroll/angular/dist/css/mobiscroll.min.css"
             ],
             "scripts": [
               "node_modules/chart.js/dist/Chart.js",
