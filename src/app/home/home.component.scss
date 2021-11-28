@@ -1,9 +1,46 @@
 .text-white {
     color : black !important
   }
+  .title {
+    text-align: center;
+    padding-top: 10%;
+    font-size: 4rem;
+    font-weight: bold;
+    font-family: Arial;
+  }
+  .cont
+  {
+    width: 50%;
+  }
+  
+ 
+  .carousel-indicators {
+    display: none;
+  
+  }
+  .d {
 
+    padding-top: 2%;
+    width: 90% !important;
+  
+  
+  
+  }
   body {
 background-color: white!important;
+  }
+  .btn1{
+    padding: 8px 25px;
+    font-weight: 600;
+    background-color:#E43A19 !important;
+    font-family: "Raleway", sans-serif;
+    color: white;
+    width:15%;
+  }
+  .btn2{
+    margin-left: 10%;
+    margin-top: 3%;
+    
   }
   .c1{
  
