@@ -22,11 +22,9 @@ import { AdminComponent } from './admin/admin.component';
 import { RequestResetComponent } from './password/request-reset/request-reset.component';
 import { ResponseResetComponent } from './password/response-reset/response-reset.component';
 import { NgxIntlTelInputModule } from "ngx-intl-tel-input";
-import { MatSelectCountryModule } from "@angular-material-extensions/select-country";
 import { CommonModule } from '@angular/common';
-import { MbscModule } from '@mobiscroll/angular';
-import { FooterComponent } from './footer/footer.component';
 
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,9 +48,7 @@ import { FooterComponent } from './footer/footer.component';
     ReactiveFormsModule,
     SnotifyModule,
     NgxIntlTelInputModule,
-    MatSelectCountryModule,
-    CommonModule,
-    MbscModule
+    CommonModule   
   ],
   providers: [ServiceService,TokenService,AuthService,AfterLoginService,BeforeLoginService,
     { provide: 'SnotifyToastConfig', useValue: ToastDefaults},

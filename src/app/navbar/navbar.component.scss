@@ -5,9 +5,10 @@
     margin: 0;
     box-sizing: border-box;
 }
-.c10{
 
-}
+.v{   
+    z-index: 1 !important;
+    position: sticky !important;}
 
 body{
     font-family: 'Poppins', sans-serif;
@@ -90,12 +91,15 @@ a{
     width:100px;
 }
 .c1{
-    color:#E43A19!important;
+    color:#111111!important;
     font-family: 'Open Sans', sans-serif;
 }
 .c2{
     color:#000000!important;
     font-family: 'Open Sans', sans-serif;
+}
+li>a:hover{
+    color:#E43A19!important;
 }
 .c3{
     color:#E43A19!important;

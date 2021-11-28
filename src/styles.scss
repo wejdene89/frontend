@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~ng-snotify/styles/material";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 
 .text-poppy-red {
@@ -8,10 +9,27 @@
 .btn-poppy-red {
   background-color: #ef5350 !important;
 }
+
 .bg-poppy-red {
-  background-color: #F8F8F8;
+  background-color: white;
 }
 .navbar.navbar-dark .navbar-toggler{
   background-color: #E43A19!important;
 
 }
+footer
+{
+  font-family: "Open Sans", sans-serif;
+  background-color: #1b1b1b !important;
+
+}
+.footercolor{
+  background-color: #1b1b1b !important;
+
+}
+
+
+
+
+
+

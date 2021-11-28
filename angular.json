@@ -39,8 +39,8 @@
               "node_modules/angular-bootstrap-md/assets/scss/bootstrap/bootstrap.scss",
               "node_modules/angular-bootstrap-md/assets/scss/mdb.scss",
               "node_modules/intl-tel-input/build/css/intlTelInput.css",
-              "src/styles.scss",
-              "./node_modules/@mobiscroll/angular/dist/css/mobiscroll.min.css"
+              "src/styles.scss"
+
             ],
             "scripts": [
               "node_modules/chart.js/dist/Chart.js",

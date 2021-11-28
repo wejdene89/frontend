@@ -1,27 +1,22 @@
-.c1{
-    z-index: -1!important;
-    position: absolute!important;
-    width: 100% !important;
-    
-  }
-  button{
+
+button{
       background-color : #E43A19 !important; 
         color : #FFFFFF !important;
         width : 35% !important;
         height: 15%;
         margin-left: 10%;
 
-    }
+}
 a{
     color : #2f3138 !important;
     font-weight: bold!important;
+   
 }
 label{
     color: #2f3138!important;
 
 }
-.c2{
-}
+
 .img{
  
         background-color:#9CCFAF;
@@ -44,4 +39,8 @@ label{
     position: absolute;
     left: 0;
     top: 5px;
+}
+option{
+    width: 600px;
+    height: 100px;
 }
