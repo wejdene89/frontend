@@ -30,12 +30,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     {img: '../../assets/countries/Yemen.png'},
 
 
-
-
-
-
-
-
   ];
   
   slides: any = [[]];
@@ -52,6 +46,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   
   ngOnInit() {
     this.slides = this.chunk(this.cards, 4);
+    console.log(this.cards);
   }
   
   ngAfterViewInit() {
@@ -62,11 +57,25 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.renderer.setStyle(el.parentElement, 'visibility','hidden');
       this.renderer.addClass(el.firstElementChild, 'fa-3x');
     });
+    const image = document.querySelectorAll('.imgcont');
+    image.forEach((el: any) => {
+      this.renderer.setStyle(el.firstElementChild, 'height','100px');
+      this.renderer.setStyle(el.firstElementChild, 'width','300px');
+
+    });
+   
     const indicateur = document.querySelectorAll('.carousel-indicators');
     indicateur.forEach((el: any) => {
-       
-      this.renderer.setStyle(el.childNodes, 'background-color','black');
-    });
 
+      this.renderer.setStyle(el,  'top','108px');
+  
+
+      for(let i=0;i<=6;i++)
+      {
+        this.renderer.setStyle(el.childNodes[i], 'background-color','#e03a3c');
+     
+      }
+     ;
+    });
   }
 }
