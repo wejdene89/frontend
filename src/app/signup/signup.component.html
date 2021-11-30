@@ -9,16 +9,16 @@
 
                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
                     <form #signupForm=ngForm [formGroup]="form" (ngSubmit)="onSubmit()">
-      
+
                       <div class="d-flex flex-row align-items-center mb-4">
                         <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                         <div class="form-outline flex-fill mb-0">
                           <div class="md-form">
                            <input type="text" id="nom"   class="form-control i" mdbInput mdbValidate  formControlName="nom" >
-                           <label class="form-label" for="form3Example1c">First Name </label> 
+                           <label class="form-label" for="form3Example1c">First Name </label>
                                 <mdb-error *ngIf="nom.invalid && (nom.dirty || nom.touched)">Required</mdb-error>
                                 <mdb-success *ngIf="nom.valid && (nom.dirty || nom.touched)"></mdb-success>
-                                
+
                            </div>
                         </div>
                         <i class="far fa-user fa-lg me-3 fa-fw"></i>
@@ -31,13 +31,13 @@
                           </div>
                         </div>
                         </div>
-       
-                      
-        
+
+
+
                           <div class="d-flex flex-row align-items-center mb-4">
                             <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                             <div class="form-outline flex-fill mb-0">
-              
+
                               <div class="md-form">
                                 <input type="text" id="email" required class="form-control" mdbInput  mdbValidate formControlName="email">
                                 <label class="form-label" for="form3Example3c">Your Email</label>
@@ -49,16 +49,16 @@
                           <div class="d-flex flex-row align-items-center mb-4">
                            <div class="md-form">
                             <ngx-intl-tel-input mdbValidate
-                                    [cssClass]="'custom'" 
+                                    [cssClass]="'custom'"
                                     [preferredCountries]="preferredCountries"
-                                    [enableAutoCountrySelect]="false" 
-                                    [enablePlaceholder]="true" 
+                                    [enableAutoCountrySelect]="false"
+                                    [enablePlaceholder]="true"
                                     [searchCountryFlag]="true"
                                     [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
-                                    [selectFirstCountry]="false" 
+                                    [selectFirstCountry]="false"
                                     [selectedCountryISO]="CountryISO.India"
-                                    [maxLength]="15" 
-                                    [phoneValidation]="true" 
+                                    [maxLength]="15"
+                                    [phoneValidation]="true"
                                     [separateDialCode]="separateDialCode"
                                     name="numtel" formControlName="numtel">
                            </ngx-intl-tel-input>
@@ -67,20 +67,20 @@
                             </div>
                             </div>
                             <div class="d-flex flex-row align-items-center mb-4">
-                            
+
                               <div class="md-form" >
                                 <select class="custom-select" mdbSelect   mdbValidate required formControlName="country">
                                   <option [ngValue]="null" selected>Country</option>
-                                  <option [value]="country.text" *ngFor="let country of myData" >          
-                                    {{country.text}}       
+                                  <option [value]="country.text" *ngFor="let country of myData" >
+                                    {{country.text}}
                                   </option>
                                 </select>
                                 <mdb-error *ngIf=" country.invalid && (country.dirty ||  country.touched)">Choose your country</mdb-error>
                                 <mdb-success *ngIf=" country.valid && (country.dirty ||  country.touched)"></mdb-success>
                               </div>
-                        
+
                             </div>
-                          
+
                             <div class="d-flex flex-row align-items-center mb-4">
                               <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                               <div class="form-outline flex-fill mb-0">
@@ -90,7 +90,7 @@
                                   <label class="form-label" for="form3Example4c">Password</label>
                                   <mdb-error *ngIf="password.invalid && (password.dirty || password.touched)">Make sure it's at least 8 characters </mdb-error>
                                   <mdb-success *ngIf="password.valid && (password.dirty || password.touched)"></mdb-success>
-                                </div>  
+                                </div>
                               </div>
                               <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                               <div class="form-outline flex-fill mb-0">
@@ -112,25 +112,25 @@
                        </label>
                      </div>
                    </form>
-                      
 
-                          
+
+
                           <div class="form-check d-flex justify-content-center mb-5">
                           <button type="button" class="btn btn-warning btn-rounded " type="submit" (click)="Effacer()">Reset</button>
                           <button  type="button"  class="btn btn-warning btn-rounded"   [disabled]="!signupForm.valid"  type="submit">Submit</button>
                         </div>
                       </form>
                         <div class="d-flex justify-content-end ">
-                          Already have an account?  <a routerLink="/signup" >Sign In</a>
+                          Already have an account?  <a routerLink="/login" >Sign In</a>
                         </div>
-                        
-                  
+
+
                     </div>
                     <div class="col-md-10 col-lg-6 col-xl-5 d-flex align-items-center order-1 order-lg-2 ">
-      
+
                       <img src="../../assets/signup.png" class="img-fluid" alt="Sample image">
-                    </div> 
-                    </div>             
+                    </div>
+                    </div>
                   </div>
                 </div>
                </div>

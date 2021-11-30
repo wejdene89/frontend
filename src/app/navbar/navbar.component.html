@@ -5,36 +5,36 @@
 
     <!-- Navbar brand -->
     <mdb-navbar-brand><a class="navbar-brand" href="#"> <img src="../../assets/logo.png" class="img-fluid" alt="Responsive image"></a></mdb-navbar-brand>
-  
+
     <!-- Collapsible content -->
     <links class="v">
-  
+
       <!-- Links -->
       <ul class="navbar-nav mr-auto mt-2 ml-3 ">
-     
+
         <!-- Dropdown -->
         <li class="nav-link1 nav-item" style="--i: .85s">
             <a class="nav-link waves-light c1" routerLink="/home" mdbWavesEffect>Home<i class="fas fa-caret-down"></i></a>
             <div class="dropdown1 c21 ">
                 <ul>
-                   
+
                      <!--ORGANISATION-->
                     <li class="dropdown-link" >
                         <a href="#"class="nav-link waves-light c2 " mdbWavesEffect>ORGANISATION<i class="fas fa-caret-down"></i></a>
                         <div class="dropdown1 second">
                             <ul>
                                 <li class="dropdown-link">
-                                    <a href="#"class="nav-link waves-light c2" mdbWavesEffect>BOARD</a>
+                                    <a href="/board"class="nav-link waves-light c2" mdbWavesEffect>BOARD</a>
                                 </li>
                                 <li class="dropdown-link">
-                                    <a href="#"class="nav-link waves-light c2" mdbWavesEffect>MEMBRES COUNTRIES</a>
+                                    <a href="/Member"class="nav-link waves-light c2" mdbWavesEffect>MEMBRES COUNTRIES</a>
                                 </li>
                                 <li class="dropdown-link">
-                                    <a href="#"class="nav-link waves-light c2" mdbWavesEffect>REPRESENTATIVES OF THE REGIONS</a>
+                                    <a href="/Representatives"class="nav-link waves-light c2" mdbWavesEffect>REPRESENTATIVES OF THE REGIONS</a>
                                 </li>
                                 <li class="dropdown-link">
-                                    <a href="#"class="nav-link waves-light c2" mdbWavesEffect>CONSTITUTION</a>
-                                
+                                    <a href="../../assets/Constitution%20of%20Pan%20Arab_ang.pdf"class="nav-link waves-light c2" mdbWavesEffect>CONSTITUTION</a>
+
                                 </li>
                                 <div class="arrow"class="nav-link waves-light" mdbWavesEffect></div>
                             </ul>
@@ -49,7 +49,7 @@
                                     <a href="#" class="nav-link waves-light c2" mdbWavesEffect>HISTORY OF THE REGIONS</a>
                                 </li>
                                 <li class="dropdown-link">
-                                    <a href="#"class="nav-link waves-light c2" mdbWavesEffect>PAST PRESIDENTS</a>
+                                    <a href="/PastPresidents"class="nav-link waves-light c2" mdbWavesEffect>PAST PRESIDENTS</a>
                                 </li>
                                 <li class="dropdown-link">
                                     <a href="#"class="nav-link waves-light c2" mdbWavesEffect>PAST BOARDS</a>
@@ -94,7 +94,7 @@
                                 <li class="dropdown-link">
                                     <a href="#"class="nav-link waves-light c2" mdbWavesEffect>FUTURE CONGRESSES</a>
                                 </li>
-                                
+
                                 <div class="arrow"></div>
                             </ul>
                         </div>
@@ -110,7 +110,7 @@
                                 <li class="dropdown-link">
                                     <a href="#"class="nav-link waves-light c2" mdbWavesEffect>FUTURE MEETING</a>
                                 </li>
-                               
+
                                 <div class="arrow"></div>
                             </ul>
                         </div>
@@ -126,12 +126,12 @@
                                 <li class="dropdown-link">
                                     <a href="#" class="nav-link waves-light c2" mdbWavesEffect>VIRTUAL CONGRESSES</a>
                                 </li>
-                               
+
                                 <div class="arrow"></div>
                             </ul>
                         </div>
                     </li>
-                   
+
                     <div class="arrow"></div>
                 </ul>
             </div>
@@ -196,12 +196,12 @@
         </li>
       </ul>
       <!-- Links -->
-  
+
       <ul class=" navbar-nav ml-auto mt-1">
-       
+
         <div *ngIf="!loggedIn then thenBlock else elseBlock  " >   </div>
-        <ng-template #thenBlock > 
-       
+        <ng-template #thenBlock >
+
             <ul class="navbar-nav ml-auto mt-1">
                 <li class="nav-item">
                     <a class="nav-link waves-light c1 "  routerLink="signup">Sign up</a>
@@ -209,16 +209,16 @@
                 <li class="nav-item">
                     <a class="nav-link waves-light c1"  routerLink="login" >Sign in</a>
                 </li>
-               
+
             </ul>
-        
-      
+
+
         </ng-template>
-        <ng-template #elseBlock > 
-       
+        <ng-template #elseBlock >
+
             <ul class="navbar-nav ml-auto ">
-              
-          
+
+
               <!-- dropdown1 -->
               <li class="nav-item dropdown mt-auto " dropdown>
                 <a dropdownToggle  type="button" class="nav-link dropdown-toggle waves-light c8" mdbWavesEffect>
@@ -227,14 +227,14 @@
                   <a class="dropdown-item waves-light c2" (click)="logout($event)"> <mdb-icon fas icon="sign-out-alt" class="mr-1 c7"></mdb-icon>Sign out</a>
                 </div>
               </li>
-        
+
             </ul>
-       
+
       </ng-template>
-        
+
       </ul>
     </links>
     <!-- Collapsible content -->
-  
+
   </mdb-navbar>
   <!--/.Navbar-->

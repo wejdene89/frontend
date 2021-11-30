@@ -1,0 +1,81 @@
+<section id="team" class="bg-light-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1  class="section-heading mt-5 md-5 ">Pauns Board</h1>
+        <h3 class="section-subheading text-muted mt-5 "></h3>
+      </div>
+    </div>
+<div class="container">
+  <div class="row flex-center">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="our-team">
+        <div class="picture">
+          <img class="img-fluid" src="../../../assets/Prof%20Maged%20Abdel%20Naseer.jpg">
+        </div>
+        <div class="team-content">
+          <h3 class="name">President</h3>
+          <h4 class="title">Prof Maged Abdel Naseer</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="container">
+    <div class="row flex-center">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="our-team">
+        <div class="picture">
+          <img class="img-fluid" src="https://picsum.photos/130/130?image=839">
+        </div>
+        <div class="team-content">
+          <h3 class="name">Vice President</h3>
+          <h4 class="title">Web Developer</h4>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="our-team">
+        <div class="picture">
+          <img class="img-fluid" src="../../../assets/Prof%20Amina%20Gargouri%20.jpg">
+        </div>
+        <div class="team-content">
+          <h3 class="name">Secretary General</h3>
+          <h4 class="title">Prof Amina GARGOURI </h4>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="our-team">
+        <div class="picture">
+          <img class="img-fluid" src="../../../assets/Prof%20Hany%20Aref%20.jpg">
+        </div>
+        <div class="team-content">
+          <h3 class="name">Treasurer</h3>
+          <h4 class="title">Prof. Hany Aref </h4>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+  <script>const items = document.querySelectorAll(".accordion button");
+
+  function toggleAccordion() {
+    const itemToggle = this.getAttribute('aria-expanded');
+
+    for (i = 0; i < items.length; i++) {
+      items[i].setAttribute('aria-expanded', 'false');
+    }
+
+    if (itemToggle == 'false') {
+      this.setAttribute('aria-expanded', 'true');
+    }
+  }
+
+  items.forEach(item => item.addEventListener('click', toggleAccordion));</script>
+</section>
+

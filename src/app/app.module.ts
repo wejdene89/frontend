@@ -25,6 +25,10 @@ import { NgxIntlTelInputModule } from "ngx-intl-tel-input";
 import { CommonModule } from '@angular/common';
 
 import { FooterComponent } from './footer/footer.component';
+import { BoardComponent } from './organisation/board/board.component';
+import { MemberCountriesComponent } from './organisation/member-countries/member-countries.component';
+import { RepresentativesComponent } from './organisation/representatives/representatives.component';
+import { PastPresidentsComponent } from './history/past-presidents/past-presidents.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +40,11 @@ import { FooterComponent } from './footer/footer.component';
     AdminComponent,
     RequestResetComponent,
     ResponseResetComponent,
-    FooterComponent
+    FooterComponent,
+    BoardComponent,
+    MemberCountriesComponent,
+    RepresentativesComponent,
+    PastPresidentsComponent
   ],
   imports: [
     BrowserModule,

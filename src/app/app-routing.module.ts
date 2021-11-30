@@ -5,15 +5,41 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ProfileComponent }  from './profile/profile.component';
 import { AdminComponent }  from './admin/admin.component';
+import {BoardComponent} from "./organisation/board/board.component";
 import { BeforeLoginService } from './Services/before-login.service';
 import { AfterLoginService } from './Services/after-login.service';
 import {ResponseResetComponent} from './password/response-reset/response-reset.component';
 import {RequestResetComponent} from './password/request-reset/request-reset.component';
+import {MemberCountriesComponent} from "./organisation/member-countries/member-countries.component";
+import {RepresentativesComponent} from "./organisation/representatives/representatives.component";
+import {PastPresidentsComponent} from "./history/past-presidents/past-presidents.component";
+
 const appRoutes: Routes = [
-  { 
-   path:'home',
-   component: HomeComponent,
-   canActivate: [BeforeLoginService],
+  {
+    path:'home',
+    component: HomeComponent,
+    canActivate: [BeforeLoginService],
+  },
+
+  {
+    path:'board',
+    component: BoardComponent,
+    canActivate: [BeforeLoginService],
+  },
+  {
+    path:'Member',
+    component: MemberCountriesComponent,
+    canActivate: [BeforeLoginService],
+  },
+  {
+    path :"PastPresidents",
+    component:PastPresidentsComponent,
+    canActivate : [BeforeLoginService]
+  },
+  {
+    path:'Representatives',
+    component: RepresentativesComponent,
+    canActivate: [BeforeLoginService],
   },
   {
     path:'login',
@@ -30,13 +56,13 @@ const appRoutes: Routes = [
   {
     path:'profile',
     component: ProfileComponent,
-   // canActivate: [AfterLoginService],
+    // canActivate: [AfterLoginService],
 
   },
   {
     path:'p',
     component: ProfileComponent,
-   // canActivate: [AfterLoginService],
+    // canActivate: [AfterLoginService],
 
   },
   {
@@ -49,20 +75,20 @@ const appRoutes: Routes = [
     path:'response-reset',
     component: ResponseResetComponent,
     canActivate: [BeforeLoginService]
- },
- {
-  path:'requestreset',
-  component: RequestResetComponent,
-  canActivate: [BeforeLoginService]
-},
+  },
+  {
+    path:'requestreset',
+    component: RequestResetComponent,
+    canActivate: [BeforeLoginService]
+  },
 
 ];
 
 @NgModule({
- declarations: [],
- imports: [
-     RouterModule.forRoot(appRoutes),
-         ],
+  declarations: [],
+  imports: [
+    RouterModule.forRoot(appRoutes),
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
