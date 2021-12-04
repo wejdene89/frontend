@@ -37,9 +37,10 @@ body{
 }
 
 .container .content .title {
-  font-size: 45px;
+  font-size:4rem;
   text-transform: uppercase;
   color: #000000;
+  font-weight: bold;
 }
 
 .container .content p {
@@ -92,9 +93,7 @@ body{
   .container .content {
     text-align: center;
   }
-  .container .content .title {
-    font-size: 30px;
-  }
+
   .container .content p {
     font-size: 15px;
   }
@@ -106,5 +105,8 @@ body{
   }
   .container .content .count-down .box span {
     font-size: 15px;
+  }
+  .title{
+    font-size: 6rem!important;
   }
 }
