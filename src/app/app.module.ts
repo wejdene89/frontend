@@ -29,6 +29,10 @@ import { BoardComponent } from './organisation/board/board.component';
 import { MemberCountriesComponent } from './organisation/member-countries/member-countries.component';
 import { RepresentativesComponent } from './organisation/representatives/representatives.component';
 import { PastPresidentsComponent } from './history/past-presidents/past-presidents.component';
+import { ComingSoonComponent } from './18PaunsCongress/coming-soon/coming-soon.component';
+import { ObjectivesComponent } from './organisation/objectives/objectives.component';
+import { PastBoardsComponent } from './history/past-boards/past-boards.component';
+import { HistoryComponent } from './history/history/history.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +48,11 @@ import { PastPresidentsComponent } from './history/past-presidents/past-presiden
     BoardComponent,
     MemberCountriesComponent,
     RepresentativesComponent,
-    PastPresidentsComponent
+    PastPresidentsComponent,
+    ComingSoonComponent,
+    ObjectivesComponent,
+    PastBoardsComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,

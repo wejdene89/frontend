@@ -22,6 +22,12 @@ export class MemberCountriesComponent implements OnInit {
   isHidden13= true;
   isHidden14= true;
   isHidden15= true;
+  isHidden16= true;
+  isHidden17= true;
+  isHidden18= true;
+  isHidden19= true;
+  isHidden20= true;
+
 
   constructor() { }
 

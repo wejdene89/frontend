@@ -17,13 +17,13 @@
       </div>
   </div>
   <div class="text-center darken-grey-text mb-4">
-    <h1 class="font-bold mt-4 mb-3 h5 sco">Societies</h1>
+    <h1 class="font-bold mt-4 mb-3 h5 sco">Member Countries</h1>
 </div>
 
-  <mdb-carousel  [isControls]="true"  class="carousel-multi-item multi-animation ml-3 d-flex  justify-content-center" [type]="'carousel-multi-item'"
+  <mdb-carousel  [isControls]="true"  class="carousel-multi-item multi-animation ml-1 d-flex  justify-content-center" [type]="'carousel-multi-item'"
   [animation]="'slide'">
                 <mdb-carousel-item *ngFor="let item of slides; let i = index">
-                        <div class="col-md-3" [ngClass]="{'d-none d-md-block': cardIndex !== 0 }"
+                        <div class="col-md-2" [ngClass]="{'d-none d-md-block': cardIndex !== 0 }"
                         *ngFor="let card of item; let cardIndex = index">
                         <mdb-card class="my-1 cont">
                         <mdb-card-img [src]="card.img" class="imgcont" alt="Card image cap"></mdb-card-img>
@@ -32,26 +32,26 @@
                 </mdb-carousel-item>
   </mdb-carousel>
     <main class="mt-5">
-        
+
         <!--MDB Cards-->
         <div class="mt-5 container ">
-  
+
             <div class="text-center darken-grey-text mb-4">
                 <h1 class="font-bold mt-4 mb-3 h5">Built with Material Design for Bootstrap 4</h1>
             </div>
-  
-           
-          
+
+
+
           <!-- Grid row -->
           <!-- Grid row -->
           <div class="row">
-          
+
             <!-- Grid column -->
             <div class="col-md-6 mb-4">
-        
+
                 <!--Card-->
                 <div class="card">
-                    
+
                     <!--Card image-->
                     <div class="view overlay hm-white-slight">
                         <img src="https://mdbootstrap.com/img/Photos/Others/butterflies.jpg" class="img-fluid" alt="photo">
@@ -71,16 +71,16 @@
 
                 </div>
                 <!--/.Card-->
-                                
+
             </div>
             <!-- Grid column -->
-        
+
             <!-- Grid column -->
             <div class="col-md-6 mb-4">
-        
+
                 <!--Card-->
                 <div class="card">
-                    
+
                     <!--Card image-->
                     <div class="view overlay hm-white-slight">
                         <img src="https://mdbootstrap.com/img/Photos/Others/portrait.jpg" class="img-fluid" alt="photo">
@@ -100,19 +100,19 @@
 
                 </div>
                 <!--/.Card-->
-                                
+
             </div>
             <!-- Grid column -->
-        
+
         </div>
         <!-- Grid row -->
-        
-      
+
+
         <hr class="my-4">
 
         </div>
         <!--MDB Cards-->
-      
+
     </main>
-  
+
   </body>

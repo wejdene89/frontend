@@ -4,7 +4,7 @@
 <mdb-navbar SideClass="navbar navbar-expand-lg navbar-light bg-poppy-red"  [containerInside]="false">
 
     <!-- Navbar brand -->
-    <mdb-navbar-brand><a class="navbar-brand" href="#"> <img src="../../assets/logo.png" class="img-fluid" alt="Responsive image"></a></mdb-navbar-brand>
+    <mdb-navbar-brand><a class="navbar-brand" routerLink="/home"> <img src="../../assets/logo.png" class="img-fluid" alt="Responsive image"></a></mdb-navbar-brand>
 
     <!-- Collapsible content -->
     <links class="v">
@@ -20,20 +20,20 @@
 
                      <!--ORGANISATION-->
                     <li class="dropdown-link" >
-                        <a href="#"class="nav-link waves-light c2 " mdbWavesEffect>ORGANISATION<i class="fas fa-caret-down"></i></a>
+                        <a class="nav-link waves-light c2 " mdbWavesEffect>ORGANISATION<i class="fas fa-caret-down"></i></a>
                         <div class="dropdown1 second">
                             <ul>
                                 <li class="dropdown-link">
-                                    <a href="/board"class="nav-link waves-light c2" mdbWavesEffect>BOARD</a>
+                                    <a routerLink="/board"class="nav-link waves-light c2" mdbWavesEffect>BOARD</a>
                                 </li>
                                 <li class="dropdown-link">
-                                    <a href="/Member"class="nav-link waves-light c2" mdbWavesEffect>MEMBRES COUNTRIES</a>
+                                    <a routerLink="/Member"class="nav-link waves-light c2" mdbWavesEffect>MEMBRES SOCIETIES</a>
                                 </li>
                                 <li class="dropdown-link">
-                                    <a href="/Representatives"class="nav-link waves-light c2" mdbWavesEffect>REPRESENTATIVES OF THE REGIONS</a>
+                                    <a routerLink="/Representatives"class="nav-link waves-light c2" mdbWavesEffect>REPRESENTATIVES OF THE REGIONS</a>
                                 </li>
                                 <li class="dropdown-link">
-                                    <a href="../../assets/Constitution%20of%20Pan%20Arab_ang.pdf"class="nav-link waves-light c2" mdbWavesEffect>CONSTITUTION</a>
+                                    <a href="../../assets/Constitution%20of%20Pan%20Arab_ang.pdf" target="_blank" class="nav-link waves-light c2" mdbWavesEffect>CONSTITUTION</a>
 
                                 </li>
                                 <div class="arrow"class="nav-link waves-light" mdbWavesEffect></div>
@@ -42,55 +42,41 @@
                     </li>
                     <!--HISTORY-->
                     <li class="dropdown-link">
-                        <a href="#" class="nav-link waves-light c2" mdbWavesEffect>HISTORY<i class="fas fa-caret-down"></i></a>
+                        <a  class="nav-link waves-light c2" mdbWavesEffect>HISTORY<i class="fas fa-caret-down"></i></a>
                         <div class="dropdown1 second">
                             <ul>
                                 <li class="dropdown-link">
-                                    <a href="#" class="nav-link waves-light c2" mdbWavesEffect>HISTORY OF THE REGIONS</a>
+                                    <a routerLink="/History" class="nav-link waves-light c2" mdbWavesEffect>HISTORY OF THE REGIONS</a>
                                 </li>
                                 <li class="dropdown-link">
-                                    <a href="/PastPresidents"class="nav-link waves-light c2" mdbWavesEffect>PAST PRESIDENTS</a>
+                                    <a routerLink="/PastPresidents"class="nav-link waves-light c2" mdbWavesEffect>PAST PRESIDENTS</a>
                                 </li>
                                 <li class="dropdown-link">
-                                    <a href="#"class="nav-link waves-light c2" mdbWavesEffect>PAST BOARDS</a>
+                                    <a  routerLink="/PastBoards" class="nav-link waves-light c2" mdbWavesEffect>PAST BOARDS</a>
                                 </li>
                                 <div class="arrow"></div>
                             </ul>
                         </div>
                     </li>
                     <li class="dropdown-link">
-                        <a href="#"class="nav-link waves-light c2" mdbWavesEffect>OBJECTIFS</a>
+                        <a routerLink="/Objectives"class="nav-link waves-light c2" mdbWavesEffect>OBJECTIFS</a>
                     </li>
                     <div class="arrow"></div>
                 </ul>
             </div>
         </li>
         <li class="nav-link1 nav-item" style="--i: .85s">
-            <a href="#" class="nav-link waves-light c1" mdbWavesEffect >Events and News<i class="fas fa-caret-down"></i></a>
+            <a class="nav-link waves-light c1" mdbWavesEffect >Events and News<i class="fas fa-caret-down"></i></a>
             <div class="dropdown1 c21">
                 <ul>
                       <!--CONGRESSES-->
                       <li class="dropdown-link">
-                        <a href="#" class="nav-link waves-light c2" mdbWavesEffect>CONGRESSES<i class="fas fa-caret-down"></i></a>
+                        <a class="nav-link waves-light c2" mdbWavesEffect>CONGRESSES<i class="fas fa-caret-down"></i></a>
                         <div class="dropdown1 second">
                             <ul>
-                                <li class="dropdown-link">
-                                    <a href="#" class="nav-link waves-light c2" mdbWavesEffect>PAST CONGRESSES<i class="fas fa-caret-down"></i></a>
-                                    <div class="dropdown1 second">
-                                        <ul>
-                                            <li class="dropdown-link">
-                                                <a href="#"class="nav-link waves-light c2" mdbWavesEffect>MEDIA AND PRESS</a>
-                                            </li>
-                                            <li class="dropdown-link">
-                                                <a href="#"class="nav-link waves-light c2" mdbWavesEffect>GALLERY</a>
-                                            </li>
-                                            <li class="dropdown-link">
-                                                <a href="#"class="nav-link waves-light c2" mdbWavesEffect>VIDEOS</a>
-                                            </li>
-                                            <div class="arrow"></div>
-                                        </ul>
-                                    </div>
-                                </li>
+                              <li class="dropdown-link">
+                                <a href="#"class="nav-link waves-light c2" mdbWavesEffect>PAST CONGRESSES</a>
+                              </li>
                                 <li class="dropdown-link">
                                     <a href="#"class="nav-link waves-light c2" mdbWavesEffect>FUTURE CONGRESSES</a>
                                 </li>
@@ -101,14 +87,14 @@
                     </li>
                      <!--MEETING-->
                     <li class="dropdown-link">
-                        <a href="#"class="nav-link waves-light c2" mdbWavesEffect>MEETING<i class="fas fa-caret-down"></i></a>
+                        <a class="nav-link waves-light c2" mdbWavesEffect>MEETING<i class="fas fa-caret-down"></i></a>
                         <div class="dropdown1 second">
                             <ul>
                                 <li class="dropdown-link">
                                     <a href="#"class="nav-link waves-light c2" mdbWavesEffect>PAST MEETING</a>
                                 </li>
                                 <li class="dropdown-link">
-                                    <a href="#"class="nav-link waves-light c2" mdbWavesEffect>FUTURE MEETING</a>
+                                    <a routerLink="/ComingSoon" class="nav-link waves-light c2" mdbWavesEffect>FUTURE MEETING</a>
                                 </li>
 
                                 <div class="arrow"></div>
@@ -117,7 +103,7 @@
                     </li>
                     <!--NEWS-->
                     <li class="dropdown-link">
-                        <a href="#"class="nav-link waves-light c2" mdbWavesEffect>NEWS<i class="fas fa-caret-down"></i></a>
+                        <a  class="nav-link waves-light c2" mdbWavesEffect>NEWS<i class="fas fa-caret-down"></i></a>
                         <div class="dropdown1 second">
                             <ul>
                                 <li class="dropdown-link">
@@ -137,40 +123,27 @@
             </div>
         </li>
         <li class="nav-link1 nav-item" style="--i: 1.1s">
-            <a href="#"class="nav-link waves-light c1" mdbWavesEffect>18 PAUNS congress 2022<i class="fas fa-caret-down"></i></a>
-            <div class="dropdown1 c21 c22">
-                <ul>
-                    <li class="dropdown-link ">
-                        <a href="#" class="nav-link waves-light c2" mdbWavesEffect>MEDIA AND PRESS</a>
-                    </li>
-                    <li class="dropdown-link">
-                        <a href="#" class="nav-link waves-light c2" mdbWavesEffect>GALLERY</a>
-                    </li>
-                    <li class="dropdown-link">
-                        <a href="#" class="nav-link waves-light c2" mdbWavesEffect>VIDEOS</a>
-                    </li>
-                    <div class="arrow"></div>
-                </ul>
-            </div>
+            <a routerLink="/ComingSoon" class="nav-link waves-light c1" mdbWavesEffect>18 PAUNS congress 2022 </a>
+
         </li>
         <li class="nav-link1 nav-item" style="--i: .85s">
-            <a href="#" class="nav-link waves-light c1" mdbWavesEffect>Links<i class="fas fa-caret-down"></i></a>
+            <a class="nav-link waves-light c1" mdbWavesEffect>Links<i class="fas fa-caret-down"></i></a>
             <div class="dropdown1 c21">
                 <ul>
                       <li class="dropdown-link">
-                        <a class="nav-link waves-light c2" mdbWavesEffect href="https://wfneurology.org/?fbclid=IwAR3xIcuBQnpDyrr5fDEDvFkeU55GqaDS_15glIPXKzVvo12P5-vwVO3eLd4">WFN</a>
+                        <a class="nav-link waves-light c2" target="_blank" mdbWavesEffect href="https://wfneurology.org/?fbclid=IwAR3xIcuBQnpDyrr5fDEDvFkeU55GqaDS_15glIPXKzVvo12P5-vwVO3eLd4">WFN</a>
                      </li>
                      <li class="dropdown-link">
-                            <a class="nav-link waves-light c2" mdbWavesEffect href="https://www.ean.org/?fbclid=IwAR3RFUgGIgljc5_l4Ln_sBocvjjyCksK8bThDd8Sw9uUuCYto0iAMmA6DlA">EAN</a>
+                            <a class="nav-link waves-light c2" target="_blank" mdbWavesEffect href="https://www.ean.org/?fbclid=IwAR3RFUgGIgljc5_l4Ln_sBocvjjyCksK8bThDd8Sw9uUuCYto0iAMmA6DlA">EAN</a>
                     </li>
                     <li class="dropdown-link">
-                        <a class="nav-link waves-light c2" mdbWavesEffect href="https://www.ilae.org/?fbclid=IwAR13N9tbvX7q9YhYF0KVFUk6Gk1mG6khgpu9KWiIRdafQ2b3G9ml1wuoaiY">ILAE</a>
+                        <a class="nav-link waves-light c2" target="_blank" mdbWavesEffect href="https://www.ilae.org/?fbclid=IwAR13N9tbvX7q9YhYF0KVFUk6Gk1mG6khgpu9KWiIRdafQ2b3G9ml1wuoaiY">ILAE</a>
                    </li>
                    <li class="dropdown-link">
-                    <a class="nav-link waves-light c2" mdbWavesEffect href="https://www.movementdisorders.org/MDS/About.htm?gclid=Cj0KCQiAys2MBhDOARIsAFf1D1eoCBSqCy9QOpfoPiZvH405_PziSHSobNOKrP452voZJ7MaPHzvIngaAoY4EALw_wcB">MDS</a>
+                    <a class="nav-link waves-light c2"  target="_blank" mdbWavesEffect href="https://www.movementdisorders.org/MDS/About.htm?gclid=Cj0KCQiAys2MBhDOARIsAFf1D1eoCBSqCy9QOpfoPiZvH405_PziSHSobNOKrP452voZJ7MaPHzvIngaAoY4EALw_wcB">MDS</a>
                   </li>
                   <li class="dropdown-link">
-                    <a class="nav-link waves-light c2" mdbWavesEffect href="https://www.alzint.org/?fbclid=IwAR1P5EMu3DxBOqkaluq7LzQYhJKHx-215Dp3Om_3XW-khGHlAoFG7OqXJLU">ADI</a>
+                    <a class="nav-link waves-light c2" target="_blank" mdbWavesEffect href="https://www.alzint.org/?fbclid=IwAR1P5EMu3DxBOqkaluq7LzQYhJKHx-215Dp3Om_3XW-khGHlAoFG7OqXJLU">ADI</a>
                   </li>
                     <div class="arrow"></div>
                 </ul>
@@ -178,12 +151,10 @@
         </li>
          <!--CONTACT US-->
          <li class="nav-link1 nav-item" style="--i: .85s">
-            <a href="#"class="nav-link waves-light c1" mdbWavesEffect>Contact<i class="fas fa-caret-down"></i></a>
+            <a  class="nav-link waves-light c1" mdbWavesEffect>Contact<i class="fas fa-caret-down"></i></a>
             <div class="dropdown1 c21">
                 <ul>
-                      <li class="dropdown-link">
-                        <a class="nav-link waves-light c2" mdbWavesEffect href="#">Join</a>
-                     </li>
+
                      <li class="dropdown-link">
                             <a class="nav-link waves-light c2" mdbWavesEffect href="#">Membership</a>
                     </li>

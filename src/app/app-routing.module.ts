@@ -13,6 +13,10 @@ import {RequestResetComponent} from './password/request-reset/request-reset.comp
 import {MemberCountriesComponent} from "./organisation/member-countries/member-countries.component";
 import {RepresentativesComponent} from "./organisation/representatives/representatives.component";
 import {PastPresidentsComponent} from "./history/past-presidents/past-presidents.component";
+import {ComingSoonComponent} from "./18PaunsCongress/coming-soon/coming-soon.component";
+import {ObjectivesComponent} from "./organisation/objectives/objectives.component";
+import {PastBoardsComponent} from "./history/past-boards/past-boards.component";
+import {HistoryComponent} from "./history/history/history.component";
 
 const appRoutes: Routes = [
   {
@@ -20,7 +24,26 @@ const appRoutes: Routes = [
     component: HomeComponent,
     canActivate: [BeforeLoginService],
   },
-
+  {
+    path:'History',
+    component: HistoryComponent,
+    canActivate: [BeforeLoginService],
+  },
+  {
+    path:'PastBoards',
+    component: PastBoardsComponent,
+    canActivate: [BeforeLoginService],
+  },
+  {
+    path:'Objectives',
+    component: ObjectivesComponent,
+    canActivate: [BeforeLoginService],
+  },
+  {
+    path:'ComingSoon',
+    component: ComingSoonComponent,
+    canActivate:[BeforeLoginService]
+  },
   {
     path:'board',
     component: BoardComponent,

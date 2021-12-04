@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     {img: '../../assets/countries/Comoros.jpg'},
     {img: '../../assets/countries/egypt.jpg'},
     {img: '../../assets/countries/Emirates.png'},
-    {img: '../../assets/countries/Djibouti.jpg'}, 
+    {img: '../../assets/countries/Djibouti.jpg'},
     {img: '../../assets/countries/Bahrain.png'},
     {img: '../../assets/countries/Jordan.jpg'},
     {img: '../../assets/countries/Kuwait.png'},
@@ -31,9 +31,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
 
   ];
-  
+
   slides: any = [[]];
-  
+
   constructor(private renderer: Renderer2) { }
 
   chunk(arr: any, chunkSize: number) {
@@ -43,37 +43,37 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
     return R;
   }
-  
+
   ngOnInit() {
-    this.slides = this.chunk(this.cards, 4);
+    this.slides = this.chunk(this.cards, 7);
     console.log(this.cards);
   }
-  
+
   ngAfterViewInit() {
     const buttons = document.querySelectorAll('.btn-floating');
     buttons.forEach((el: any) => {
       this.renderer.removeClass(el, 'btn-floating');
-      this.renderer.addClass(el, 'px-4');  
+      this.renderer.addClass(el, 'px-4');
       this.renderer.setStyle(el.parentElement, 'visibility','hidden');
       this.renderer.addClass(el.firstElementChild, 'fa-3x');
     });
     const image = document.querySelectorAll('.imgcont');
     image.forEach((el: any) => {
-      this.renderer.setStyle(el.firstElementChild, 'height','100px');
-      this.renderer.setStyle(el.firstElementChild, 'width','300px');
+      this.renderer.setStyle(el.firstElementChild, 'height','60px');
+      this.renderer.setStyle(el.firstElementChild, 'width','200px');
 
     });
-   
+
     const indicateur = document.querySelectorAll('.carousel-indicators');
     indicateur.forEach((el: any) => {
 
       this.renderer.setStyle(el,  'top','108px');
-  
+
 
       for(let i=0;i<=6;i++)
       {
         this.renderer.setStyle(el.childNodes[i], 'background-color','#e03a3c');
-     
+
       }
      ;
     });
