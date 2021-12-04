@@ -20,7 +20,7 @@
   width: 120px;
   height: 1px;
   display: inline-block;
-  background: #556270;
+  background: #000000;
   margin: 4px 10px;
 }
 .team .main-team-heading {
@@ -28,7 +28,7 @@
   font-size: 36px;
   font-weight: 700;
   text-transform: uppercase;
-  color: #556270;
+  color: #000000;
   &:hover, &:focus {
     cursor: pointer;
     color: #E43A19;
@@ -59,7 +59,7 @@
   font-weight: 700;
   margin-bottom: 5px;
   font-size: 20px;
-  color: #556270;
+  color: #000000;
   line-height: 1.2;
 }
 .team .member span {
@@ -97,7 +97,7 @@
   border-radius: 4px;
   width: 32px;
   height: 32px;
-  background: #8795a4;
+  background: #000000;
 }
 .team .member .social a + a {
   margin-left: 8px;
@@ -110,3 +110,12 @@
   font-size: 16px;
   margin: 0 2px;
 }
+.title{
+  text-align: center;
+  margin-bottom: 2%;
+  color:black;
+  font-weight: bold;
+  font-size: 3rem;
+  font-family: "Raleway", sans-serif;
+}
+
