@@ -33,6 +33,9 @@ import { ComingSoonComponent } from './18PaunsCongress/coming-soon/coming-soon.c
 import { ObjectivesComponent } from './organisation/objectives/objectives.component';
 import { PastBoardsComponent } from './history/past-boards/past-boards.component';
 import { HistoryComponent } from './history/history/history.component';
+import { PastCongressesComponent } from './Event/past-congresses/past-congresses.component';
+import { PastMeetingsComponent } from './Event/past-meetings/past-meetings.component';
+import { ContactComponent } from './contact/contact.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +55,10 @@ import { HistoryComponent } from './history/history/history.component';
     ComingSoonComponent,
     ObjectivesComponent,
     PastBoardsComponent,
-    HistoryComponent
+    HistoryComponent,
+    PastCongressesComponent,
+    PastMeetingsComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

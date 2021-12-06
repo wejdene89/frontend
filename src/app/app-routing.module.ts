@@ -17,11 +17,29 @@ import {ComingSoonComponent} from "./18PaunsCongress/coming-soon/coming-soon.com
 import {ObjectivesComponent} from "./organisation/objectives/objectives.component";
 import {PastBoardsComponent} from "./history/past-boards/past-boards.component";
 import {HistoryComponent} from "./history/history/history.component";
+import {PastCongressesComponent} from "./Event/past-congresses/past-congresses.component";
+import {PastMeetingsComponent} from "./Event/past-meetings/past-meetings.component";
+import {ContactComponent} from "./contact/contact.component";
 
 const appRoutes: Routes = [
   {
+    path:'Contact',
+    component: ContactComponent,
+    canActivate: [BeforeLoginService],
+  },
+  {
     path:'home',
     component: HomeComponent,
+    canActivate: [BeforeLoginService],
+  },
+  {
+    path:'PastMeetings',
+    component: PastMeetingsComponent,
+    canActivate: [BeforeLoginService],
+  },
+  {
+    path:'PastCongresses',
+    component: PastCongressesComponent,
     canActivate: [BeforeLoginService],
   },
   {
