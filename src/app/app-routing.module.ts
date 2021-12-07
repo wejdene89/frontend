@@ -20,11 +20,17 @@ import {HistoryComponent} from "./history/history/history.component";
 import {PastCongressesComponent} from "./Event/past-congresses/past-congresses.component";
 import {PastMeetingsComponent} from "./Event/past-meetings/past-meetings.component";
 import {ContactComponent} from "./contact/contact.component";
+import {LinkComponent} from "./link/link.component";
 
 const appRoutes: Routes = [
   {
     path:'Contact',
     component: ContactComponent,
+    canActivate: [BeforeLoginService],
+  },
+  {
+    path:'Links',
+    component: LinkComponent,
     canActivate: [BeforeLoginService],
   },
   {

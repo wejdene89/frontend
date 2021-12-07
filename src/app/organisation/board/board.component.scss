@@ -1,5 +1,3 @@
-
-
 html {
   background: #eff0ef;
 }
@@ -20,7 +18,9 @@ h1 {
 }
 
 .testimonial-quote {
-  font-size: 16px;
+  font-size: 15px;
+  font-family: "Raleway", sans-serif;
+
 }
 
 .testimonial-quote blockquote {
@@ -110,3 +110,15 @@ h1 {
 .testimonial-quote.right cite {
   text-align: right;
 }
+.l1{color:black;}
+.rounded-circle{width:50%!important;
+  height: 50%!important;}
+
+.group{margin-left: 35%;}
+
+.c3{justify-content: center;}
+.c5{text-align: center;}
+.jobpos{margin-top: 10%!important;
+  margin-bottom: 0%;
+  line-height: 0rem;}
+.president{font-weight: bold;}

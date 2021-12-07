@@ -36,6 +36,7 @@ import { HistoryComponent } from './history/history/history.component';
 import { PastCongressesComponent } from './Event/past-congresses/past-congresses.component';
 import { PastMeetingsComponent } from './Event/past-meetings/past-meetings.component';
 import { ContactComponent } from './contact/contact.component';
+import { LinkComponent } from './link/link.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +59,8 @@ import { ContactComponent } from './contact/contact.component';
     HistoryComponent,
     PastCongressesComponent,
     PastMeetingsComponent,
-    ContactComponent
+    ContactComponent,
+    LinkComponent
   ],
   imports: [
     BrowserModule,

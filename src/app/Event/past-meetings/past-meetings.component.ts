@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./past-meetings.component.scss']
 })
 export class PastMeetingsComponent implements OnInit {
-
+  isHidden1=true
   constructor() { }
 
   ngOnInit(): void {
