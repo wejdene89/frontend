@@ -25,7 +25,7 @@
           <!--Grid column-->
 
           <!--Grid column-->
-          <div class="col-md-6">
+          <div class="col-md-6 ml-1">
             <div class="md-form mb-0">
               <input type="text" id="email" name="email" class="form-control"  formControlName="email">
               <label for="email" class="">Your email</label>
@@ -34,15 +34,21 @@
           <!--Grid column-->
 
         </div>
+        <br>
+        <br>
         <!--Grid row-->
-       <div class="row d-flex justify-content-center mt-3 mr-5">
-        <div class="col-md-6 mr-5">
+        <label class="dark-grey-text">Phone Number</label>
+       <div class="row d-flex ">
+
+        <div class="col-md-6">
+
           <div class="md-form mb-0">
+
            <ngx-intl-tel-input mdbValidate
                    [cssClass]="'custom'"
                    [preferredCountries]="preferredCountries"
                    [enableAutoCountrySelect]="false"
-                   [enablePlaceholder]="true"
+                   [enablePlaceholder]="false"
                    [searchCountryFlag]="true"
                    [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
                    [selectFirstCountry]="false"
@@ -52,29 +58,32 @@
                    [separateDialCode]="separateDialCode"
                    name="numtel" formControlName="numtel">
           </ngx-intl-tel-input>
-       
+
            </div>
         </div>
- 
-    
-           <div class="col-md-5 row">
 
-            <div class="md-form " >
-             
-             <select class="custom-select browser-default" mdbSelect   mdbValidate required formControlName="country" >
 
-                <option [value]="country.text" *ngFor="let country of myData" >
-                  {{country.text}}
-                </option>
-              </select>
-            
-            </div>
-          </div>
-        
 
-       
+
        </div>
-  
+
+        <br>
+        <br>
+        <label class="dark-grey-text">Country</label>
+
+        <div class="col-md-5 row">
+
+          <div class="md-form " >
+
+            <select class="custom-select browser-default" mdbSelect   mdbValidate required formControlName="country" >
+
+              <option [value]="country.text" *ngFor="let country of myData" >
+                {{country.text}}
+              </option>
+            </select>
+
+          </div>
+        </div>
         <!--Grid row-->
         <div class="row">
           <div class="col-md-12">
@@ -105,10 +114,10 @@
             <button mdbBtn color="#E43A19" class="waves-light" mdbWavesEffect >Send</button>
           </div>
         </div>
-      
+
       </form>
 
-   
+
       <div class="status"></div>
     </div>
     <!--Grid column-->
@@ -116,7 +125,7 @@
     <!--Grid column-->
     <div class="col-md-3 text-center mt-5">
       <ul class="list-unstyled mb-0 mt-5">
-       
+
 
         <li><i class="fas fa-envelope mt-4 fa-2x"></i>
           <p>pauns.adm@gmail.com</p>

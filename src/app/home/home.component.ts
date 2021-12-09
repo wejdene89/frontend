@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     {img: '../../assets/Societies_ logos/15-SSNS.jpg'},
     {img: '../../assets/Societies_ logos/18-SMN.jpg'},
     {img: '../../assets/Societies_ logos/20-ATN.jpg'},
-    
+
 
 
   ];

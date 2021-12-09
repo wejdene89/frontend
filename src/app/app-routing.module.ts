@@ -24,7 +24,7 @@ import {LinkComponent} from "./link/link.component";
 
 
 const appRoutes: Routes = [
-
+  { path: '',   redirectTo: '/home', pathMatch: 'full' }, // redirect to
   {
     path:'Contact',
     component: ContactComponent,

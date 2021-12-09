@@ -126,7 +126,7 @@
 
         </li>
         <li class="nav-link1 nav-item" style="--i: .85s">
-            <a  routerLink="/Links" class="nav-link waves-light c1" mdbWavesEffect>Links<i class="fas fa-caret-down"></i></a>
+            <a  routerLink="/Links" class="nav-link waves-light c1" mdbWavesEffect>Links</a>
 
         </li>
          <!--CONTACT US-->
@@ -140,14 +140,9 @@
 
         <div *ngIf="!loggedIn then thenBlock else elseBlock  " >   </div>
         <ng-template #thenBlock >
-            
+
             <ul class="navbar-nav ml-auto mt-1">
-                <li class="nav-item">
-                    <select class="custom-select" (change)="changeLang($event.target.value)"> 
-                     <option value="en" [selected]="lang == 'en'">English</option>
-                     <option value="ar" [selected]="lang == 'ar'">Arabic</option>
-                    </select>
-                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link waves-light c1 "  routerLink="signup">Sign up</a>
                 </li>

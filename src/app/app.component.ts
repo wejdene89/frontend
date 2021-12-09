@@ -1,4 +1,4 @@
-import { Component , OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import { FormBuilder, FormGroup , Validators,FormControl} from "@angular/forms";
 import {Router} from '@angular/router';
 
@@ -8,26 +8,32 @@ import {Router} from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+
   title = 'mdb-angular-free';
 
   successAlert = false;
   form: FormGroup;
   eng: any;
-  constructor(public fb: FormBuilder,private router:Router) 
-  { 
+  constructor(public fb: FormBuilder,private router:Router)
+  {
     this.form = this.fb.group({
-      list: new FormControl(null,[ Validators.required]),      
- 
+      list: new FormControl(null,[ Validators.required]),
+
     });
 
 
   }
-  ngOnInit(): void {}
-  onSubmit(){
+  ngOnInit(): void {
+
+
+  }
+
+
+    onSubmit(){
     console.log(this.form.get('list').value)
     if(this.form.get('list').value=="eng")
     {
-    
+
        this.eng =  "eng";
     }
     if(this.form.get('list').value=="arbe")
