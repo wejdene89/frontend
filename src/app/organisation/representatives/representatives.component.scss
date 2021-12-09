@@ -5,6 +5,8 @@
 .team .section-title {
   padding-bottom: 40px;
 }
+
+
 .team .section-title .main-team-subheading {
   font-size: 14px;
   font-weight: 500;
@@ -48,6 +50,8 @@
 }
 .team .member .pic img {
   transition: ease-in-out 0.3s;
+  width:150px !important;
+  height:150px !important;
 }
 .team .member:hover img {
   transform: scale(1.1);

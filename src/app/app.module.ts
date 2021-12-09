@@ -37,6 +37,14 @@ import { PastCongressesComponent } from './Event/past-congresses/past-congresses
 import { PastMeetingsComponent } from './Event/past-meetings/past-meetings.component';
 import { ContactComponent } from './contact/contact.component';
 import { LinkComponent } from './link/link.component';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClient} from '@angular/common/http';
+
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +68,9 @@ import { LinkComponent } from './link/link.component';
     PastCongressesComponent,
     PastMeetingsComponent,
     ContactComponent,
-    LinkComponent
+    LinkComponent,
+  
+  
   ],
   imports: [
     BrowserModule,
@@ -72,9 +82,16 @@ import { LinkComponent } from './link/link.component';
     ReactiveFormsModule,
     SnotifyModule,
     NgxIntlTelInputModule,
-    CommonModule   
+    CommonModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+  }) 
   ],
-  providers: [ServiceService,TokenService,AuthService,AfterLoginService,BeforeLoginService,
+  providers: [ServiceService,TokenService,AuthService,AfterLoginService,BeforeLoginService,HttpClient,
     { provide: 'SnotifyToastConfig', useValue: ToastDefaults},
     SnotifyService],
    

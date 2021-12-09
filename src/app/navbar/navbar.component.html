@@ -33,7 +33,8 @@
                                     <a routerLink="/Representatives"class="nav-link waves-light c2" mdbWavesEffect>REPRESENTATIVES OF THE REGIONS</a>
                                 </li>
                                 <li class="dropdown-link">
-                                    <a href="../../assets/Constitution%20of%20Pan%20Arab_ang.pdf" target="_blank" class="nav-link waves-light c2" mdbWavesEffect>CONSTITUTION</a>
+                                    <a href="../../assets/Constitution%20of%20Pan%20Arab_ang.pdf" target="_blank" class="nav-link waves-light c2" mdbWavesEffect>Bylaws
+                                    </a>
 
                                 </li>
                                 <div class="arrow"class="nav-link waves-light" mdbWavesEffect></div>
@@ -71,7 +72,7 @@
                 <ul>
                       <!--CONGRESSES-->
                       <li class="dropdown-link">
-                        <a class="nav-link waves-light c2" mdbWavesEffect>CONGRESSES<i class="fas fa-caret-down"></i></a>
+                        <a class="nav-link waves-light c2" mdbWavesEffect>PAUNS CONGRESSES<i class="fas fa-caret-down"></i></a>
                         <div class="dropdown1 second">
                             <ul>
                               <li class="dropdown-link">
@@ -87,14 +88,14 @@
                     </li>
                      <!--MEETING-->
                     <li class="dropdown-link">
-                        <a class="nav-link waves-light c2" mdbWavesEffect>MEETING<i class="fas fa-caret-down"></i></a>
+                        <a class="nav-link waves-light c2" mdbWavesEffect>PAUNS PARTICIPATION<i class="fas fa-caret-down"></i></a>
                         <div class="dropdown1 second">
                             <ul>
                                 <li class="dropdown-link">
-                                    <a routerLink="/PastMeetings" class="nav-link waves-light c2" mdbWavesEffect>PAST MEETING</a>
+                                    <a routerLink="/PastMeetings" class="nav-link waves-light c2" mdbWavesEffect>PAST CONGRESSES</a>
                                 </li>
                                 <li class="dropdown-link">
-                                    <a routerLink="/ComingSoon" class="nav-link waves-light c2" mdbWavesEffect>FUTURE MEETING</a>
+                                    <a routerLink="/ComingSoon" class="nav-link waves-light c2" mdbWavesEffect>FUTURE CONGRESSES</a>
                                 </li>
 
                                 <div class="arrow"></div>
@@ -139,8 +140,14 @@
 
         <div *ngIf="!loggedIn then thenBlock else elseBlock  " >   </div>
         <ng-template #thenBlock >
-
+            
             <ul class="navbar-nav ml-auto mt-1">
+                <li class="nav-item">
+                    <select class="custom-select" (change)="changeLang($event.target.value)"> 
+                     <option value="en" [selected]="lang == 'en'">English</option>
+                     <option value="ar" [selected]="lang == 'ar'">Arabic</option>
+                    </select>
+                 </li>
                 <li class="nav-item">
                     <a class="nav-link waves-light c1 "  routerLink="signup">Sign up</a>
                 </li>
@@ -160,7 +167,7 @@
               <!-- dropdown1 -->
               <li class="nav-item dropdown mt-auto " dropdown>
                 <a dropdownToggle  type="button" class="nav-link dropdown-toggle waves-light c8" mdbWavesEffect>
-        <i class="fas fa-lg fa-user-check  c6" ></i> {{user.nom}}  {{user.prenom}}</a>
+        <i class="fas fa-lg fa-user-check  c6" ></i></a>
                 <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary mt-4" role="menu">
                   <a class="dropdown-item waves-light c2" (click)="logout($event)"> <mdb-icon fas icon="sign-out-alt" class="mr-1 c7"></mdb-icon>Sign out</a>
                 </div>

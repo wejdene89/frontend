@@ -1,17 +1,27 @@
 .text-white {
     color : black !important
   }
+  .img{
+    background-size: 100% 100% !important;
+  }
+  .c{
+    height: 450px !important
+  }
   .title {
     text-align: center;
-    padding-top: 10%;
-    font-size: 4rem;
+    padding-top: 3%;
+    font-size: 3rem;
     font-weight: bold;
     font-family: Arial;
+   
   }
   .cont
   {
-    width: 50%;
+    width: 60%;
 
+  }
+  .di{
+    opacity: 0.99;
   }
  .sco{
   text-align: center;
@@ -31,7 +41,7 @@
   .d {
 
     padding-top: 2%;
-    width: 90% !important;
+    width: 70% !important;
 
 
 

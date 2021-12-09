@@ -1,17 +1,16 @@
 <!--Section: Contact v.2-->
-<section class="mb-4">
+<section class="mb-4 c1 ml-5">
 
   <!--Section heading-->
   <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
   <!--Section description-->
-  <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
-    a matter of hours to help you.</p>
+
 
   <div class="row">
 
     <!--Grid column-->
     <div class="col-md-9 mb-md-0 mb-5">
-      <form id="contact-form" name="contact-form" action="../contact/mail.php" method="POST">
+      <form      #ContactForm=ngForm [formGroup]='Contactform' (ngSubmit)="onSubmit()" id="contact-form" name="contact-form">
 
         <!--Grid row-->
         <div class="row">
@@ -19,7 +18,7 @@
           <!--Grid column-->
           <div class="col-md-6">
             <div class="md-form mb-0">
-              <input type="text" id="name" name="name" class="form-control">
+              <input type="text" id="name" name="name" class="form-control"  formControlName="name">
               <label for="name" class="">Your name</label>
             </div>
           </div>
@@ -28,7 +27,7 @@
           <!--Grid column-->
           <div class="col-md-6">
             <div class="md-form mb-0">
-              <input type="text" id="email" name="email" class="form-control">
+              <input type="text" id="email" name="email" class="form-control"  formControlName="email">
               <label for="email" class="">Your email</label>
             </div>
           </div>
@@ -36,12 +35,51 @@
 
         </div>
         <!--Grid row-->
+       <div class="row d-flex justify-content-center mt-3 mr-5">
+        <div class="col-md-6 mr-5">
+          <div class="md-form mb-0">
+           <ngx-intl-tel-input mdbValidate
+                   [cssClass]="'custom'"
+                   [preferredCountries]="preferredCountries"
+                   [enableAutoCountrySelect]="false"
+                   [enablePlaceholder]="true"
+                   [searchCountryFlag]="true"
+                   [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                   [selectFirstCountry]="false"
+                   [selectedCountryISO]="CountryISO.India"
+                   [maxLength]="15"
+                   [phoneValidation]="true"
+                   [separateDialCode]="separateDialCode"
+                   name="numtel" formControlName="numtel">
+          </ngx-intl-tel-input>
+       
+           </div>
+        </div>
+ 
+    
+           <div class="col-md-5 row">
 
+            <div class="md-form " >
+             
+             <select class="custom-select browser-default" mdbSelect   mdbValidate required formControlName="country" >
+
+                <option [value]="country.text" *ngFor="let country of myData" >
+                  {{country.text}}
+                </option>
+              </select>
+            
+            </div>
+          </div>
+        
+
+       
+       </div>
+  
         <!--Grid row-->
         <div class="row">
           <div class="col-md-12">
             <div class="md-form mb-0">
-              <input type="text" id="subject" name="subject" class="form-control">
+              <input type="text" id="subject" name="subject" class="form-control" formControlName="subject">
               <label for="subject" class="">Subject</label>
             </div>
           </div>
@@ -55,36 +93,33 @@
           <div class="col-md-12">
 
             <div class="md-form">
-              <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+              <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea" formControlName="message"></textarea>
               <label for="message">Your message</label>
             </div>
 
           </div>
         </div>
         <!--Grid row-->
-
+        <div class="row d-flex justify-content-end mr-1">
+          <div class=" d-flex justify-content-center mb-4  ">
+            <button mdbBtn color="#E43A19" class="waves-light" mdbWavesEffect >Send</button>
+          </div>
+        </div>
+      
       </form>
 
-      <div class="text-center ">
-        <a class="btn btn-primary c2  " onclick="document.getElementById('contact-form').submit();">Send</a>
-      </div>
+   
       <div class="status"></div>
     </div>
     <!--Grid column-->
 
     <!--Grid column-->
-    <div class="col-md-3 text-center">
-      <ul class="list-unstyled mb-0">
-        <li><i class="fas fa-map-marker-alt fa-2x"></i>
-          <p>San Francisco, CA 94126, USA</p>
-        </li>
-
-        <li><i class="fas fa-phone mt-4 fa-2x"></i>
-          <p>+ 01 234 567 89</p>
-        </li>
+    <div class="col-md-3 text-center mt-5">
+      <ul class="list-unstyled mb-0 mt-5">
+       
 
         <li><i class="fas fa-envelope mt-4 fa-2x"></i>
-          <p>contact@mdbootstrap.com</p>
+          <p>pauns.adm@gmail.com</p>
         </li>
       </ul>
     </div>

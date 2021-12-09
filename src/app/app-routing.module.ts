@@ -22,81 +22,84 @@ import {PastMeetingsComponent} from "./Event/past-meetings/past-meetings.compone
 import {ContactComponent} from "./contact/contact.component";
 import {LinkComponent} from "./link/link.component";
 
+
 const appRoutes: Routes = [
+
   {
     path:'Contact',
     component: ContactComponent,
-    canActivate: [BeforeLoginService],
+  //  canActivate: [BeforeLoginService],
   },
   {
     path:'Links',
     component: LinkComponent,
-    canActivate: [BeforeLoginService],
+   // canActivate: [BeforeLoginService],
   },
   {
     path:'home',
     component: HomeComponent,
-    canActivate: [BeforeLoginService],
+   // canActivate: [BeforeLoginService],
   },
   {
     path:'PastMeetings',
     component: PastMeetingsComponent,
-    canActivate: [BeforeLoginService],
+   // canActivate: [BeforeLoginService],
   },
   {
     path:'PastCongresses',
     component: PastCongressesComponent,
-    canActivate: [BeforeLoginService],
+    //canActivate: [BeforeLoginService],
   },
   {
     path:'History',
     component: HistoryComponent,
-    canActivate: [BeforeLoginService],
+ //   canActivate: [BeforeLoginService],
   },
   {
     path:'PastBoards',
     component: PastBoardsComponent,
-    canActivate: [BeforeLoginService],
+   // canActivate: [BeforeLoginService],
   },
   {
     path:'Objectives',
     component: ObjectivesComponent,
-    canActivate: [BeforeLoginService],
+  //  canActivate: [BeforeLoginService],
   },
   {
     path:'ComingSoon',
     component: ComingSoonComponent,
-    canActivate:[BeforeLoginService]
+  //  canActivate:[BeforeLoginService]
   },
   {
     path:'board',
     component: BoardComponent,
-    canActivate: [BeforeLoginService],
+  //  canActivate: [BeforeLoginService],
   },
+
   {
     path:'Member',
     component: MemberCountriesComponent,
-    canActivate: [BeforeLoginService],
+   // canActivate: [BeforeLoginService],
   },
   {
     path :"PastPresidents",
     component:PastPresidentsComponent,
-    canActivate : [BeforeLoginService]
+   // canActivate : [BeforeLoginService]
   },
   {
     path:'Representatives',
     component: RepresentativesComponent,
-    canActivate: [BeforeLoginService],
+   // canActivate: [BeforeLoginService],
   },
   {
     path:'login',
     component: LoginComponent,
-    canActivate: [BeforeLoginService],
+   // canActivate: [BeforeLoginService],
   },
   {
     path:'signup',
     component: SignupComponent,
-    canActivate: [BeforeLoginService],
+    //canActivate: [BeforeLoginService],
 
   },
 
@@ -115,18 +118,18 @@ const appRoutes: Routes = [
   {
     path:'admin',
     component: AdminComponent,
-    canActivate: [AfterLoginService],
+    //canActivate: [AfterLoginService],
 
   },
   {
     path:'response-reset',
     component: ResponseResetComponent,
-    canActivate: [BeforeLoginService]
+   // canActivate: [BeforeLoginService]
   },
   {
     path:'requestreset',
     component: RequestResetComponent,
-    canActivate: [BeforeLoginService]
+    //canActivate: [BeforeLoginService]
   },
 
 ];
