@@ -41,6 +41,8 @@ export class AdminComponent implements OnInit {
   baseUrl ='';
   tabname =[];
   name:any;
+  filedataEvent:any;
+
 
   @ViewChild('contentModal', { static: true }) public contentModal;
   @ViewChild('contentModal1', { static: true }) public contentModal1;
@@ -61,7 +63,7 @@ export class AdminComponent implements OnInit {
     this.form1 = this.fb.group({
       title1: new FormControl(null,[ Validators.required]),
       description1: new FormControl(null, [Validators.required]),
-      filenew: new FormControl()
+      filenew: new FormControl(null)
     });
     this.formpres = this.fb.group({
       titlepres: new FormControl(null,[ Validators.required]),
@@ -149,36 +151,17 @@ export class AdminComponent implements OnInit {
   }
   fileEvent(e)
   {
-    this.filedata = e.target.files[0];
-    this.form.patchValue({
-      file: this.filedata});
-    this.form.get('file').updateValueAndValidity();
-    this.fileimage =  this.filedata.name ;
+    this.filedataEvent = e.target.files[0];
+
   }
   fileNew(e)
-  {  var file ;
-      file = e.target.files[0];
-    /*.form1.patchValue({
-      filenew: this.filedata
-
-    });
-    this.form1.get('filenew').updateValueAndValidity();
-    console.log(this.form1.get('filenew').value)
-    this.fileimage =  this.filedata.name ;*/
-    console.log(file);
-    this.form1.patchValue({
-      filenew: e.target.files
-
-    });
-   // console.log(this.form1.get('filenew').value);
-
+  {
+      this.filedata = e.target.files[0];
   }
+  filedataPresentation:any;
   filePresentation(e)
   {
-    this.filedata = e.target.files[0];
-    this.formpres.patchValue({
-      file: this.filedata});
-    this.formpres.get('filepres').updateValueAndValidity();
+    this.filedataPresentation = e.target.files[0];
 
   }
 
@@ -198,7 +181,8 @@ export class AdminComponent implements OnInit {
     });
     this.formupdate11.get('filenew111').updateValueAndValidity();
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
   //event add
   onSubmit()
   {
@@ -208,7 +192,7 @@ export class AdminComponent implements OnInit {
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'multipart/form-data');
     headers.append('Accept', 'application/json');
-    formData.append("imageevent", this.form.get('file').value);
+    formData.append("imageevent", this.filedataEvent);
     this.Services.addEvent(formData,{headers: headers}).subscribe(
       data=>this.handleResponse(data),
       error=>this.handleError(error));
@@ -234,7 +218,7 @@ export class AdminComponent implements OnInit {
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'multipart/form-data');
     headers.append('Accept', 'application/json');
-    formData.append("imagenews", this.form1.get('filenew').value);
+    formData.append("imagenews",this.filedata);
     this.Services.addNew(formData,{headers: headers}).subscribe(
       data=>this.handleResponse1(data),
       error=>this.handleError1(error));
