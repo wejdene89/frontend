@@ -12,40 +12,39 @@ import { FormBuilder, FormGroup , Validators,FormControl} from "@angular/forms";
 export class RequestResetComponent implements OnInit {
   form: FormGroup;
   error=null;
-constructor(private Services: ServiceService,public fb: FormBuilder, public n: SnotifyService) 
-{ 
-        this.form = this.fb.group({
-          email: new FormControl(null,[ Validators.required,Validators.email]),}); 
-}
+  constructor(private Services: ServiceService,public fb: FormBuilder, public n: SnotifyService)
+  {
+    this.form = this.fb.group({
+      email: new FormControl(null,[ Validators.required,Validators.email]),});
+  }
 
-ngOnInit() {}
+  ngOnInit() {}
 
-onSubmit()
-{ 
-      this.n.info('veuillez attendre...',{timeout:5000});
-      var formData: any = new FormData();
-      formData.append("email", this.form.get('email').value);
-      this.Services.sendPasswordResetLink(formData).subscribe(
-                 data=>this.handleResponse(data),
-                 error=>this.handleError(error)); 
-}
+  onSubmit()
+  {
+    this.n.info('veuillez attendre...',{timeout:5000});
+    var formData: any = new FormData();
+    formData.append("email", this.form.get('email').value);
+    this.Services.sendPasswordResetLink(formData).subscribe(
+      data=>this.handleResponse(data),
+      error=>this.handleError(error));
+  }
 
-handleResponse(data)
-{
-     var message = data.data ;
-     this.n.success(message,{timeout:5000});
-     this.form = this.fb.group({
-      email:['']}); 
-}
- 
-handleError(error)
-{ 
-      this.error = error.error.error; 
-      this.n.error(this.error,{timeout:5000});
-}
+  handleResponse(data)
+  {
+    var message = data.data ;
+    this.n.success(message,{timeout:5000});
+    this.form = this.fb.group({
+      email:['']});
+  }
 
- get email() {return this.form.get('email');}
-  
-    
+  handleError(error)
+  {
+    this.error = error.error.error;
+    this.n.error(this.error,{timeout:5000});
+  }
+
+  get email() {return this.form.get('email');}
+
+
 }
-  
