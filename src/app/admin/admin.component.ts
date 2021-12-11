@@ -20,28 +20,33 @@ export class AdminComponent implements OnInit {
   tab : any;
   tabevent : any;
   tabpres:  any;
+  tabname =[];
+  tabuser:any;
   form: FormGroup;
   form1: FormGroup;
   formpres: FormGroup;
   formupdate1: FormGroup;
   formupdate11: FormGroup;
+  formupdatepres: FormGroup;
   error =null;
   filedata:any;
   fileimage:any;
   fileimage1:any;
   filedata1:any;
+  filedataEvent:any;
+  filedataupdatepres:any;
   new:any;
   index:  number;
   event:any;
   index1: number;
   id: any;
-  test: any;
+  prese:any;
+  indexpres:any;
   safeURL1:any;
   url:SafeResourceUrl;
   baseUrl ='';
-  tabname =[];
   name:any;
-  filedataEvent:any;
+ filepre:any;
 
 
   @ViewChild('contentModal', { static: true }) public contentModal;
@@ -50,6 +55,7 @@ export class AdminComponent implements OnInit {
 
   @ViewChild('contentupdate', { static: true }) public contentupdate;
   @ViewChild('contentupdate1', { static: true }) public contentupdate1;
+  @ViewChild('contentModalPresentationUpdate', { static: true }) public contentModalPresentationUpdate;
 
   constructor(private  Services: ServiceService,public notif: SnotifyService, public fb: FormBuilder,private _sanitizer: DomSanitizer)
   {
@@ -68,8 +74,8 @@ export class AdminComponent implements OnInit {
     this.formpres = this.fb.group({
       titlepres: new FormControl(null,[ Validators.required]),
       descriptionpres: new FormControl(null, [Validators.required]),
-      filepres: new FormControl(null,[ Validators.required]),
-      videopres: new FormControl(null,[ Validators.required])
+      videopres: new FormControl(null,[ Validators.required]),
+      filepres: new FormControl(null,[ Validators.required])
 
     });
 
@@ -85,7 +91,13 @@ export class AdminComponent implements OnInit {
       filenew111: new FormControl(null,[ Validators.required])
     });
 
+    this.formupdatepres = this.fb.group({
+      titlepres1: new FormControl(null,[ Validators.required]),
+      descriptionpres1: new FormControl(null, [Validators.required]),
+      videopres1: new FormControl(null,[ Validators.required]),
+      filepres1: new FormControl(null,[ Validators.required])
 
+    });
     this.Services.getAllNew().subscribe(data =>
     {
       this.tab = data ;
@@ -103,7 +115,7 @@ export class AdminComponent implements OnInit {
         this.tabpres[i].video = 'https://www.youtube.com/embed/' + this.tabpres[i].video.split('v=')[1].split('&')[0];
         this.safeURL = this._sanitizer.bypassSecurityTrustResourceUrl(this.tabpres[i].video);
         this.tabpres[i].video = this.safeURL;
-        this.tabpres[i].pres = this.tabpres[i].pres.split('public');
+        this.tabpres[i].pres = this.tabpres[i].pres.split('public/');
         this.name =  this.tabpres[i].pres[1].split('file/')[1];
         this.tabname[i] =   this.name ;
         this.tabpres[i].pres =  'http://localhost:8000/storage' + this.tabpres[i].pres[1];
@@ -111,14 +123,22 @@ export class AdminComponent implements OnInit {
 
       }
     },error => console.error(error));
-
+    this.Services.getAllUser().subscribe(data =>
+      {
+        this.tabuser = data ;
+        console.log(this.tabuser);
+  
+      },error => console.error(error));
 
   }
-
+   filed:any;
   download(i)
   {
     let  winfact;
     winfact = window.open();
+    let file=  this.tabpres[i].pres.split('http://localhost:8000/storagefile/')[1];
+    console.log(file);
+    this.filed = 'http://localhost:8000/storage/file/' + file
     winfact.document.write(`
     <html>
     <header>
@@ -138,7 +158,7 @@ export class AdminComponent implements OnInit {
     </Style>
     </header>
     <body>
-    <iframe src="${this.tabpres[i].pres}" frameborder="1" ></iframe>
+    <iframe src="${this.filed}" frameborder="1" ></iframe>
     <span> File Download </span>
     </body>
     </html>
@@ -164,22 +184,20 @@ export class AdminComponent implements OnInit {
     this.filedataPresentation = e.target.files[0];
 
   }
-
+  filedataupdate:any;
   fileNewupdate(e)
   {
-    this.filedata = e.target.files[0];
-    this.formupdate1.patchValue({
-      filenew11: this.filedata
-    });
-    this.formupdate1.get('filenew11').updateValueAndValidity();
+    this.filedataupdate = e.target.files[0];
+    
   }
+  filedataupdateevent:any;
   fileEventupdate(e)
   {
-    this.filedata = e.target.files[0];
-    this.formupdate11.patchValue({
-      filenew111: this.filedata
-    });
-    this.formupdate11.get('filenew111').updateValueAndValidity();
+    this.filedataupdateevent = e.target.files[0];
+  }
+  filePresentationupdate(e)
+  {
+    this.filedataupdatepres = e.target.files[0];
   }
   ngOnInit(): void {
   }
@@ -237,18 +255,27 @@ export class AdminComponent implements OnInit {
   onSubmitPresentation()
   {
     var formData: any = new FormData();
-    formData.append("titrenews", this.form1.get('title1').value);
-    formData.append("descriptionnews", this.form1.get('description1').value);
+    formData.append("titre", this.formpres.get('titlepres').value);
+    formData.append("description", this.formpres.get('descriptionpres').value);
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'multipart/form-data');
     headers.append('Accept', 'application/json');
-    formData.append("imagenews", this.form1.get('filenew').value);
-    this.Services.addNew(formData,{headers: headers}).subscribe(
+    formData.append("pres", this.filedataPresentation);
+    formData.append("video", this.formpres.get('videopres').value);
+    this.Services.addPresentation(formData,{headers: headers}).subscribe(
       data=>this.handleResponsepres(data),
       error=>this.handleErrorpres(error));
   }
   handleResponsepres(data)
-  { this.tab.push(data);
+  {  var video = 'https://www.youtube.com/embed/' + data.video.split('v=')[1].split('&')[0];
+    var safeURL = this._sanitizer.bypassSecurityTrustResourceUrl(video);
+    data.video = safeURL;
+    data.pres = data.pres.split('public');
+    var pre = data.pres[1].split('file/')[1];
+    data.pres = pre ;
+    console.log(data);
+    this.tabpres.push(data);
+    this.tabname.push(data.pres);
     this.contentModalPresentation.hide();
   }
 
@@ -275,17 +302,22 @@ export class AdminComponent implements OnInit {
   }
 
   removePres(pres: Presentation):void
-  {    console.log(pres);
+  {    
+    var pre = pres.pres.split('storagefile/')[0];
     this.Services.deletePres(pres.id).subscribe(
       data=>{  this.notif.success('The presentation is  removed ',{timeout:5000});
-        this.tabpres=this.tabpres.filter(p=>p!==pres);
-        console.log(this.tabpres)
       });
-
-    //this.tabname=this.tab.filter(p=>p!==pres);
-
-  }
-
+    this.tabpres=this.tabpres.filter(p=>p!==pres);
+    this.tabname=this.tabname.filter(p1=>p1!==pre);
+}
+removeUser(user):void
+{
+  //this.Services.deleteNew(news.id).subscribe(
+  //  data=>{  this.notif.success('The new is  removed ',{timeout:5000});
+   // });
+  //this.tab=this.tab.filter(p=>p!==news);
+console.log(user);
+}
   add()
   {
 
@@ -308,6 +340,12 @@ export class AdminComponent implements OnInit {
   {
 
     this.contentModalPresentation.hide();
+
+  }
+  hidePresentationUpdate()
+  {
+
+    this.contentModalPresentationUpdate.hide();
 
   }
   add1()
@@ -358,7 +396,19 @@ export class AdminComponent implements OnInit {
     },error => console.error(error));
 
   }
+  updatePres(pres: Presentation, i:number):void
+  {
+    this.Services.getPresentation(pres.id).subscribe(data =>
+    {
+      this.prese = data ;
+      this.indexpres= i;
+      this.filepre = pres.pres.split('http://localhost:8000/storagefile/')[1];
+      console.log(this.filepre);
+      this.contentModalPresentationUpdate.show();
 
+    },error => console.error(error));
+
+  }
 //Update News
   onSubmitnewupdate()
   {
@@ -394,7 +444,7 @@ export class AdminComponent implements OnInit {
     }
     else
     {
-      formData.append("imagenews", this.formupdate1.get('filenew11').value);
+      formData.append("imagenews",this.filedataupdate);
 
     }
 
@@ -448,7 +498,7 @@ export class AdminComponent implements OnInit {
     }
     else
     {
-      formData.append("imageevent", this.formupdate11.get('filenew111').value);
+      formData.append("imageevent", this.filedataupdateevent);
 
     }
 
@@ -467,6 +517,75 @@ export class AdminComponent implements OnInit {
     this.error = error.error.errors;
     console.log(this.error);
   }
+//Update Presentation 
+onSubmitPresentationUpdate(){
+  var formData: any = new FormData();
+
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'multipart/form-data');
+    headers.append('Accept', 'application/json');
+    if(this.formupdatepres.get('titlepres1').value ==  null)
+    {
+      formData.append("titre", this.prese.titre);
+
+    }
+    else
+    {
+      formData.append("titre", this.formupdatepres.get('titlepres1').value);
+    }
+    if(this.formupdatepres.get('descriptionpres1').value ==  null)
+    {
+      formData.append("description", this.prese.description);
+
+    }
+    else
+    {
+      formData.append("description", this.formupdatepres.get('descriptionpres1').value);
+
+    }
+    if( this.formupdatepres.get('videopres1').value ==  null)
+    {
+      formData.append("video", this.prese.video);
+
+    }
+    else
+    {
+      formData.append("video", this.formupdatepres.get('videopres1').value);
+
+    }
+    if(this.formupdatepres.get('filepres1').value ==  null)
+    {
+      formData.append("pres", this.prese.pres);
+
+    }
+    else
+    {
+      formData.append("pres", this.filedataupdatepres);
+
+    }
+    this.Services.updatePresentation(formData,this.prese.id,{headers: headers}).subscribe(
+      data=>this.handleResponseUpdate11(data),
+      error=>this.handleErrorUpdate11(error));
+}
+handleResponseUpdate11(data)
+{  
+  data.video = 'https://www.youtube.com/embed/' + data.video.split('v=')[1].split('&')[0];
+  this.safeURL = this._sanitizer.bypassSecurityTrustResourceUrl(data.video);
+  data.video = this.safeURL;
+  data.pres =  data.pres.split('public/');
+  this.name =   data.pres[1].split('file/')[1];
+  this.tabname[this.indexpres] =   this.name ;
+  data.pres =  'http://localhost:8000/storage' + data.pres[1];
+
+  this.tabpres[this.indexpres]=data;
+  this.contentModalPresentationUpdate.hide();
+}
+
+handleErrorUpdate11(error)
+{
+  this.error = error.error.errors;
+ 
+}
 //add event
   get title() {return  this.form.get('title');}
   get description() {return this.form.get('description');}
@@ -475,7 +594,13 @@ export class AdminComponent implements OnInit {
   get title1() {return  this.form1.get('title1');}
   get description1() {return this.form1.get('description1');}
   get filenew() {return  this.form1.get('filenew');}
+//add presentation
+get  titlepres() {return  this.form1.get('titlepres');}
+get  descriptionpres() {return this.form1.get('descriptionpres');}
+get  filepres() {return  this.form1.get('filepres');}
+get   videopres() {return  this.form1.get('videopres');}
 //update new
+
   get title11() {return  this.formupdate1.get('title11');}
   get description11() {return this.formupdate1.get('description');}
   get filenew11() {return  this.formupdate1.get('filenew');}

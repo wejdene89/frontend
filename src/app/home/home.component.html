@@ -34,82 +34,77 @@
                         </div>
                 </mdb-carousel-item>
   </mdb-carousel>
-   <!--
-    <main class="mt-5">
+  <main class="mt-5">
+        
+    <!--MDB Cards-->
+    <div class="mt-5 container   ">
 
-
-        <div class="mt-5 container ">
-
-            <div class="text-center darken-grey-text mb-4">
-                <h1 class="font-bold mt-4 mb-3 h5">Built with Material Design for Bootstrap 4</h1>
-            </div>
-
-
-
-          <div class="row">
-
-
-            <div class="col-md-6 mb-4">
-
-
-                <div class="card">
-
-
-                    <div class="view overlay hm-white-slight">
-                        <img src="https://mdbootstrap.com/img/Photos/Others/butterflies.jpg" class="img-fluid" alt="photo">
-                        <a href="#!">
-                            <div class="mask"></div>
-                        </a>
-                    </div>
-
-                    <div class="card-body">
-
-                        <h4 class="card-title">Butterflies are awesome creatures!</h4>
-
-                        <p class="card-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores est quas molestias excepturi sint occaecati cupiditate non provident similique.</p>
-                        <a href="#!" class="btn btn-outline-primary waves-effect">Read more</a>
-                    </div>
-
-                </div>
-
-
-            </div>
-
-            <div class="col-md-6 mb-4">
-                <div class="card">
-
-                    <div class="view overlay hm-white-slight">
-                        <img src="https://mdbootstrap.com/img/Photos/Others/portrait.jpg" class="img-fluid" alt="photo">
-                        <a href="#!">
-                            <div class="mask"></div>
-                        </a>
-                    </div>
-
-                    <div class="card-body">
-
-                        <h4 class="card-title">The eye is the mirror of the soul</h4>
-
-                        <p class="card-text">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est.</p>
-                        <a href="#!" class="btn btn-outline-warning waves-effect">Read more</a>
-                    </div>
-
-                </div>
-
-
-            </div>
-
-
+        <div class="text-center darken-grey-text mt-4 ">
+            <h1 class="font-bold mt-5  d-flex justify-content-center ml-4  event h5">Events & News</h1>
         </div>
-
-
-
-        <hr class="my-4">
-
+      <!-- Grid row -->
+      <!-- Grid row -->
+      <div class="row mt-4">
+      
+        <!-- Grid column -->
+        <div class="col-md-6 mb-4">
+    
+          
+            <mdb-card>
+                <!--Card image-->
+                <mdb-card-img src="http://localhost:8000/storage/{{event?.imageevent}}" alt="Card image cap"></mdb-card-img>
+                <!--Card content-->
+                <mdb-card-body>
+              
+                  <!--Title-->
+                  <mdb-card-title>
+                    <h4>{{event?.titreevent}}</h4>
+                  </mdb-card-title>
+              
+                  <!--Text-->
+                  <mdb-card-text> {{event?.descriptionevent}}
+                  </mdb-card-text>
+              
+                  <a class="btn btn-outline-primary waves-effect">Events</a>
+                                </mdb-card-body>
+              </mdb-card>                 
         </div>
+        <!-- Grid column -->
+    
+        <!-- Grid column -->
+        <div class="col-md-6 mb-4">
+    
+        
+            <mdb-card>
+                <!--Card image-->
+                <mdb-card-img src="http://localhost:8000/storage/{{new?.imagenews}}" alt="Card image cap"></mdb-card-img>
+                <!--Card content-->
+                <mdb-card-body>
+              
+                  <!--Title-->
+                  <mdb-card-title>
+                    <h4>{{new?.titrenews}}</h4>
+                  </mdb-card-title>
+              
+                  <!--Text-->
+                  <mdb-card-text> {{new?.descriptionnews}}
+                  </mdb-card-text>
+              
+                  <a class="btn btn-outline-primary waves-effect">News</a>
+                                </mdb-card-body>
+              </mdb-card>            
+        </div>
+        <!-- Grid column -->
+    
+    </div>
+    <!-- Grid row -->
+    
+  
 
-
-    </main>
-    -->
+    </div>
+    <!--MDB Cards-->
+  
+</main>
 <br>
 <br>
 <br>

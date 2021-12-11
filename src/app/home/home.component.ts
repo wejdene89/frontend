@@ -1,13 +1,14 @@
 import {AfterViewInit, Component, OnInit, Renderer2 } from '@angular/core';
 import {HttpHeaders} from '@angular/common/http';
-
+import { ServiceService } from '../Services/service.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, AfterViewInit {
-  lang;
+   event:any;
+   new:any;
   cards = [
     {img: '../../assets/Societies_ logos/1-SNS.jpg'},
     {img: '../../assets/Societies_ logos/2- BNA.jpg'},
@@ -28,7 +29,22 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   slides: any = [[]];
 
-  constructor(private renderer: Renderer2) { }
+  constructor(private renderer: Renderer2,private  Services: ServiceService)
+  { 
+          this.Services.getFirstEvent().subscribe(data =>
+            {   
+              this.event = data ;
+          
+            },error => console.error(error));
+
+            
+          this.Services.getFirstNew().subscribe(data =>
+            {   
+              this.new = data ;
+          
+            },error => console.error(error));
+  
+  }
 
   chunk(arr: any, chunkSize: number) {
     let R = [];
@@ -40,11 +56,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.slides = this.chunk(this.cards, 7);
-    console.log(this.cards);
-    this.lang =  localStorage.getItem('lang');
-    const headers = new HttpHeaders({
-      'Accept-Language': this.lang
-    });
+   
   }
 
   ngAfterViewInit() {
@@ -68,9 +80,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.renderer.setStyle(el,  'top','108px');
 
 
-      for(let i=0;i<=6;i++)
+      for(let i=0;i<=2;i++)
       {
-        this.renderer.setStyle(el.childNodes[i], 'background-color','#e03a3c');
+      this.renderer.setStyle(el.childNodes[i], 'background-color','#e03a3c');
 
       }
      ;

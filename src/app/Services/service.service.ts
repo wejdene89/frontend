@@ -39,7 +39,14 @@ private baseUrl ='http://localhost:8000/api';
    {
     return this.http.get(`${this.baseUrl}/user`,header)  ;
    }
-
+   getAllUser()
+   {
+     return this.http.get(`${this.baseUrl}/users`)  ;
+   }
+   deleteUser(id:number):Observable<{}>
+   {
+     return this.http.delete(`${this.baseUrl}/userdelete/${id}`);
+   }
   getFirstEvent()
   {
     return this.http.get(`${this.baseUrl}/eventfirst`)  ;
@@ -68,6 +75,10 @@ private baseUrl ='http://localhost:8000/api';
   {
     return this.http.get(`${this.baseUrl}/eventfind/${id}`)  ;
   }
+  getPresentation(id:number)
+  {
+    return this.http.get(`${this.baseUrl}/presentationfind/${id}`)  ;
+  }
   deleteNew(id:number):Observable<{}>
   {
     return this.http.delete(`${this.baseUrl}/newdelete/${id}`);
@@ -88,6 +99,10 @@ private baseUrl ='http://localhost:8000/api';
   {
     return  this.http.post(`${this.baseUrl}/new`,data,Headers);
   }
+  addPresentation(data,Headers)
+  {
+    return  this.http.post(`${this.baseUrl}/presentation`,data,Headers);
+  }
   updateNew(data,id,Headers)
   {
     return  this.http.post(`${this.baseUrl}/newupdate/`+id,data,Headers);
@@ -95,6 +110,10 @@ private baseUrl ='http://localhost:8000/api';
   updateEvent(data,id,Headers)
   {
     return  this.http.post(`${this.baseUrl}/eventupdate/`+id,data,Headers);
+  }
+  updatePresentation(data,id,Headers)
+  {
+    return  this.http.post(`${this.baseUrl}/presentationupdate/`+id,data,Headers);
   }
 
   getFile(id:number)

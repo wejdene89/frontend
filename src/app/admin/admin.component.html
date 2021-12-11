@@ -137,19 +137,21 @@
           <div class="d-flex flex-row align-items-center mb-4">
             <div class="form-outline flex-fill mb-0">
               <div class="md-form">
-                <input type="text" id="text" class="form-control" mdbInput mdbValidate  required  formControlName="videopres">
+                <input type="text" id="text" class="form-control" mdbInput  pattern=".*https://www.youtube.com/watch[^ @]*" mdbValidate  required  formControlName="videopres">
                 <label class="form-label"  >Upload  Video</label>
               </div>
             </div>
           </div>
+       
           <div class="md-form mb-5">
-            <div class="custom-file">
-              <label class="btn">
-                <i class="fa fa-image"></i>Choose File<input type="file" style="display: none;" name="image" class="form-control" mdbValidate
-                                                             required  (change)="filePresentation($event)"  formControlName="filepres">
-              </label>
-            </div>
-          </div>
+
+
+            <input type="file" class="custom-file-input " id="inputGroupFile01" mdbInput mdbValidate  required   (change)="filePresentation($event)"  formControlName="filepres" >
+            <label class="custom-file-label" >Choose file</label>
+          <br/>
+          <br/>
+          <span *ngIf="filedataPresentation != null">{{filedataPresentation.name}}</span>
+        </div>
           <div class="modal-footer d-flex justify-content-center">
             <button class="btn btnevent">Create</button>
           </div>
@@ -197,14 +199,16 @@
               </div>
             </div>
           </div>
+        
           <div class="md-form mb-5">
 
-            <div class="custom-file">
-              <input type="file" class="custom-file-input form-control" id="inputGroupFile01"  mdbInput mdbValidate  required   formControlName="filenew11" (change)="fileNewupdate($event)" aria-describedby="inputGroupFileAddon01">
-              <label class="custom-file-label" >Choose file</label>
-            </div>
-          </div>
 
+            <input type="file" class="custom-file-input " id="inputGroupFile01"   mdbInput mdbValidate  required   formControlName="filenew11" (change)="fileNewupdate($event)" >
+            <label class="custom-file-label" >Choose file</label>
+          <br/>
+          <br/>
+          <span *ngIf="filedataupdate != null">{{filedataupdate.name}}</span>
+        </div>
           <div class="modal-footer d-flex justify-content-center">
             <button class="btn btnevent">Update</button>
           </div>
@@ -252,14 +256,79 @@
               </div>
             </div>
           </div>
+    
           <div class="md-form mb-5">
 
-            <div class="custom-file">
-              <input type="file" class="custom-file-input form-control" id="inputGroupFile01"  mdbInput mdbValidate  required   formControlName="filenew111" (change)="  fileEventupdate($event)" aria-describedby="inputGroupFileAddon01">
-              <label class="custom-file-label">Choose file</label>
+
+            <input type="file" class="custom-file-input " id="inputGroupFile01" mdbInput mdbValidate  required   formControlName="filenew111" (change)="  fileEventupdate($event)" >
+            <label class="custom-file-label" >Choose file</label>
+          <br/>
+          <br/>
+          <span *ngIf="filedataupdateevent != null">{{filedataupdateevent.name}}</span>
+        </div>
+          <div class="modal-footer d-flex justify-content-center">
+            <button class="btn btnevent">Update</button>
+          </div>
+        </form>
+      </div>
+
+
+    </div>
+
+  </div>
+</div>
+<!--Presentation Update-->
+<div class="modal fade" #contentModalPresentationUpdate mdbModal id="contentModalPresentationUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold event">Presentation</h4>
+        <button type="button" class="close"  (click)=" hidePresentationUpdate()"data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <form #PresentationUpdateForm=ngForm [formGroup]="formupdatepres" (ngSubmit)="onSubmitPresentationUpdate()">
+          <div class="d-flex flex-row align-items-center mb-4">
+            <div class="form-outline flex-fill mb-0">
+              <div class="md-form">
+                <input type="text" id="text" class="form-control" mdbInput mdbValidate  required  formControlName="titlepres1" value="{{prese?.titre}}">
+                <label class="form-label"  >Title</label>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex flex-row align-items-center mb-4">
+            <div class="form-outline flex-fill mb-0">
+              <div class="md-form">
+                <textarea id="form19" class="md-textarea form-control" rows="3" class="form-control" mdbInput mdbValidate  required  formControlName="descriptionpres1" value="{{prese?.description}}"></textarea>
+                <label class="form-label"  >Description</label>
+              </div>
             </div>
           </div>
 
+
+
+          <div class="d-flex flex-row align-items-center mb-4">
+            <div class="form-outline flex-fill mb-0">
+              <div class="md-form">
+                <input type="text" id="text" class="form-control" mdbInput  pattern=".*https://www.youtube.com/watch[^ @]*" mdbValidate  required  formControlName="videopres1" value="{{prese?.video}}">
+                <label class="form-label"  >Upload  Video</label>
+              </div>
+            </div>
+          </div>
+       
+          <div class="md-form mb-5">
+
+
+            <input type="file" class="custom-file-input " id="inputGroupFile01" mdbInput mdbValidate  required   (change)=" filePresentationupdate($event)"  formControlName="filepres1" >
+            <label class="custom-file-label" >Choose file</label>
+          <br/>
+          <br/>
+          <span>{{filepre}}</span>
+          <br/>
+          <span *ngIf="this.filedataupdatepres != null">{{filedataupdatepres.name}}</span>
+        </div>
           <div class="modal-footer d-flex justify-content-center">
             <button class="btn btnevent">Update</button>
           </div>
@@ -370,18 +439,18 @@
 
     </div>
     <!-- Presentation table -->
-    <div class="c ml-5">
+    <div class=" mb-5 d-flex justify-content-around ">
 
-      <div class="card ml-5 c">
+      <div class="card c3 ml-1">
         <h3 class="card-header text-center font-weight-bold text-uppercase py-4"> Presentation table</h3>
-        <div class="card-body c">
+        <div class="card-body ">
           <div class="table-wrapper-scroll-y my-custom-scrollbar">
                  <span class="table-add float-right mb-3 mr-2">
                      <a class="text-success" (click)="addpres()">
                          <mdb-icon fas icon="plus" size="2x"></mdb-icon>
                      </a>
                      </span>
-            <table class="table table-bordered table-striped mb-0  c">
+            <table class="table table-bordered table-striped mb-0">
               <thead>
               <tr>
 
@@ -413,8 +482,44 @@
                             <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" (click)="removePres(el)">Remove</button>
                         </span>
                   <span >
-                            <button type="button" mdbBtn color="success" rounded="true" size="sm" class="mt-5" (click)="updateNew(el,i)">Update</button>
+                            <button type="button" mdbBtn color="success" rounded="true" size="sm" class="mt-5" (click)="updatePres(el,i)">Update</button>
                         </span>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!--User-->
+      <div class=" card c3">
+        <h3 class="card-header text-center font-weight-bold text-uppercase py-4"> User table</h3>
+        <div class="card-body ">
+          <div class="table-wrapper-scroll-y my-custom-scrollbar">
+            <table class="table table-bordered table-striped mb-0">
+              <thead>
+              <tr>
+
+                <th scope="col">Last Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Country</th>
+                <th scope="col">Action</th>
+              </tr>
+              </thead>
+              <tbody class="c">
+              <tr *ngFor="let el of tabuser; let i = index ">
+                <td scope="row">{{el.prenom}}</td>
+                <td>{{el.nom}}</td>
+                <td>{{el.email}}</td>
+                <td>{{el.numtel}}</td>
+                <td>{{el.pays}}</td>
+                <td>
+                          <span class="table-remove">
+                            <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" (click)="removeUser(el)">Remove</button>
+                        </span>
+                 
                 </td>
               </tr>
               </tbody>
