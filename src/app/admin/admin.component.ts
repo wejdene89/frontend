@@ -8,6 +8,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import {New} from "../new";
 import {Event} from "../event";
 import {Presentation} from "../presentation";
+import { Router } from '@angular/router';
 
 import WebViewer from '@pdftron/webviewer';
 @Component({
@@ -57,7 +58,7 @@ export class AdminComponent implements OnInit {
   @ViewChild('contentupdate1', { static: true }) public contentupdate1;
   @ViewChild('contentModalPresentationUpdate', { static: true }) public contentModalPresentationUpdate;
 
-  constructor(private  Services: ServiceService,public notif: SnotifyService, public fb: FormBuilder,private _sanitizer: DomSanitizer)
+  constructor(private  Services: ServiceService,private router:Router,public notif: SnotifyService, public fb: FormBuilder,private _sanitizer: DomSanitizer)
   {
 
     this.form = this.fb.group({
@@ -126,7 +127,6 @@ export class AdminComponent implements OnInit {
     this.Services.getAllUser().subscribe(data =>
       {
         this.tabuser = data ;
-        console.log(this.tabuser);
   
       },error => console.error(error));
 
@@ -200,6 +200,7 @@ export class AdminComponent implements OnInit {
     this.filedataupdatepres = e.target.files[0];
   }
   ngOnInit(): void {
+    
   }
   //event add
   onSubmit()
@@ -312,12 +313,12 @@ export class AdminComponent implements OnInit {
 }
 removeUser(user):void
 {
-  //this.Services.deleteNew(news.id).subscribe(
-  //  data=>{  this.notif.success('The new is  removed ',{timeout:5000});
-   // });
-  //this.tab=this.tab.filter(p=>p!==news);
-console.log(user);
+  this.Services.deleteUser(user.id).subscribe(
+    data=>{  this.notif.success('The user is  removed ',{timeout:5000});
+    });
+   this.tabuser=this.tabuser.filter(p=>p!==user);
 }
+
   add()
   {
 
@@ -409,6 +410,24 @@ console.log(user);
     },error => console.error(error));
 
   }
+accepte(user: any,i: number){
+  console.log(user);
+  console.log(i);
+  var formData: any = new FormData();
+  var acc = "accepte";
+  formData.append("accepte", acc);
+  this.Services.updateUser(formData,user.id).subscribe(
+    data=>this.handleResponseuser(data),
+      error=>this.handleErroruser(error));
+}
+
+handleResponseuser(data)
+{
+  //this.tabuser=this.tabuser.filter(p=>p!==data);
+  
+ 
+}
+handleErroruser(error){console.log(error);} 
 //Update News
   onSubmitnewupdate()
   {
@@ -585,6 +604,11 @@ handleErrorUpdate11(error)
 {
   this.error = error.error.errors;
  
+}
+users(event:MouseEvent)
+{
+  this.router.navigateByUrl('/users');
+
 }
 //add event
   get title() {return  this.form.get('title');}

@@ -1,0 +1,59 @@
+<main class="mt-5">
+
+    <!--MDB Cards-->
+    <div>
+
+      <!-- Presentation table -->
+      <div class=" mb-5 d-flex justify-content-around ">
+  
+    
+        <!--User-->
+        <div class=" card c3">
+          <h3 class="card-header text-center font-weight-bold text-uppercase py-4"> User table</h3>
+          <div class="card-body ">
+            <div class="table-wrapper-scroll-y my-custom-scrollbar">
+              <table class="table table-bordered table-striped mb-0">
+                <thead>
+                <tr>
+  
+                  <th scope="col">Last Name</th>
+                  <th scope="col">Last Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Phone Number</th>
+                  <th scope="col">Country</th>
+                  <th scope="col">Action</th>
+                </tr>
+                </thead>
+                <tbody class="c">
+                <tr *ngFor="let el of tabuser; let i = index ">
+                  <td scope="row">{{el.prenom}}</td>
+                  <td>{{el.nom}}</td>
+                  <td>{{el.email}}</td>
+                  <td>{{el.numtel}}</td>
+                  <td>{{el.pays}}</td>
+                  <td>
+                            <span >
+                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" (click)="removeUser(el)">Remove</button>
+                          </span>
+                          <span >
+                            <button type="button" id="acc"    *ngIf="el.accepte == 'accepte' " mdbBtn color="success" rounded="true" [disabled] ="true"  size="sm" class="mt-5" (click)="accepte(el,i)">Accept</button>
+                        </span>
+                        <span >
+                          <button type="button" id="acc" *ngIf="el.accepte == null "   mdbBtn color="success" rounded="true" [disabled] ="false"   size="sm" class="mt-5" (click)="accepte(el,i)">Accept</button>
+                      </span>
+                   
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!-- Editable table -->
+      </div>
+  
+  
+    </div>
+    <!--MDB Cards-->
+  
+  </main>

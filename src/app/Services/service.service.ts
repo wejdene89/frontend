@@ -79,6 +79,10 @@ private baseUrl ='http://localhost:8000/api';
   {
     return this.http.get(`${this.baseUrl}/presentationfind/${id}`)  ;
   }
+  getUser(email :any)
+  {
+    return this.http.get(`${this.baseUrl}/findemail/${email}`)  ;
+  }
   deleteNew(id:number):Observable<{}>
   {
     return this.http.delete(`${this.baseUrl}/newdelete/${id}`);
@@ -114,6 +118,10 @@ private baseUrl ='http://localhost:8000/api';
   updatePresentation(data,id,Headers)
   {
     return  this.http.post(`${this.baseUrl}/presentationupdate/`+id,data,Headers);
+  }
+  updateUser(data,id)
+  {
+    return  this.http.post(`${this.baseUrl}/userupdate/`+id,data);
   }
 
   getFile(id:number)

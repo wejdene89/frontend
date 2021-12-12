@@ -85,15 +85,8 @@ onSubmit()
     
 handleResponse(data)
 {   
-     this.Token.handle(data.access_token);
-     var userauth = {
-     nom :  data.nom,
-     prenom: data.prenom
-    }
-     this.Token.getUser(data.role);
-     this.Auth.changedAuthStatus(true);
-     this.Auth.changedUser(this.Token.getUser(userauth));
-     this.router.navigate(['/profile']);
+  this.notif.success('Your request is being processed',{timeout:5000});
+  this.router.navigate(['/home']);
 }
 
 handleError(error)
@@ -101,12 +94,12 @@ handleError(error)
  this.error = error.error.errors;
    if(error.error.errors.email != null)
       {
-        this.error = 'Email existe déja';
+        this.error = 'Email already exists';
         this.notif.error(this.error,{timeout:3000});
       }
    if(error.error.errors.password != null)
       {
-        this.error = 'Mot de passe n\'est pas conforme';
+        this.error = 'Password is not correct';
         this.notif.error(this.error,{timeout:4000});
       }
    
@@ -116,7 +109,7 @@ handleError(error)
    
 ngOnInit()
 {
-  this.notif.info('Tous les champs sont obligatoires ',{timeout:5000});
+  this.notif.info('All fields are mandatory',{timeout:5000});
 
   this.http.get('https://trial.mobiscroll.com/content/countries.json').subscribe((resp: any) => {
     const countries = [];

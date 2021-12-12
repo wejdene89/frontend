@@ -40,6 +40,7 @@ import { LinkComponent } from './link/link.component';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient} from '@angular/common/http';
+import { UsersComponent } from './users/users.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -69,6 +70,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     PastMeetingsComponent,
     ContactComponent,
     LinkComponent,
+    UsersComponent,
   
   
   ],

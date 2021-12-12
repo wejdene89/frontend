@@ -342,7 +342,11 @@
 </div>
 <body class="hm-gradient c1">
 
+<div class="row d-flex justify-content-end mr-5 mt-5">
+ 
+    <button  type="button" class="btn waves-light c2 p-2 " (click)="users($event)" > <mdb-icon fas icon="users-cog" class="mr-1 c7"></mdb-icon>Users</button>
 
+</div>
 <main class="mt-5">
 
   <!--MDB Cards-->
@@ -481,7 +485,7 @@
                           <span class="table-remove">
                             <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" (click)="removePres(el)">Remove</button>
                         </span>
-                  <span >
+                       <span>
                             <button type="button" mdbBtn color="success" rounded="true" size="sm" class="mt-5" (click)="updatePres(el,i)">Update</button>
                         </span>
                 </td>
@@ -516,9 +520,15 @@
                 <td>{{el.numtel}}</td>
                 <td>{{el.pays}}</td>
                 <td>
-                          <span class="table-remove">
+                          <span >
                             <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" (click)="removeUser(el)">Remove</button>
                         </span>
+                        <span >
+                          <button type="button" id="acc"    *ngIf="el.accepte == 'accepte' " mdbBtn color="success" rounded="true" [disabled] ="true"  size="sm" class="mt-5" (click)="accepte(el,i)">Accept</button>
+                      </span>
+                      <span >
+                        <button type="button" id="acc" *ngIf="el.accepte == null "   mdbBtn color="success" rounded="true" [disabled] ="false"   size="sm" class="mt-5" (click)="accepte(el,i)">Accept</button>
+                    </span>
                  
                 </td>
               </tr>
